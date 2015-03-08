@@ -4,12 +4,16 @@ import net.gammas.magicas.blocks.MagicasBlocks;
 import net.gammas.magicas.items.MagicasItems;
 import net.gammas.magicas.util.CommonProxy;
 import net.gammas.magicas.util.Referances;
+import net.gammas.magicas.world.MagicasWorld;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 @Mod(modid = Referances.MODID, name = Referances.MODNAME, version = Referances.VERSION)
 public class MagicasMod 
@@ -17,26 +21,30 @@ public class MagicasMod
 	//@SidedProxy(clientSide = "net.gammas.magicas.util.ClientProxy", serverSide = "net.gammas.magicas.util.CommonProxy")
 	//public static CommonProxy proxy;
 	
-	public static CreativeTabs creativeTabMagicas;
+	@Instance
+	public static MagicasMod instance;
+	
+	@EventHandler
+	public void PreInit(FMLPreInitializationEvent event)
+	{
+		MagicasCreativeTabs.InitCreativeTabs();
+		MagicasItems.InitItems();
+		MagicasBlocks.InitBlocks();
+		MagicasWorld.InitWorld();
+	}
 	
 	@EventHandler
 	public void Init(FMLInitializationEvent event)
-	{
-		creativeTabMagicas = new CreativeTabs("magicasTab")
-		{
-			
-			@Override
-			public Item getTabIconItem()
-			{
-				return MagicasItems.magicWandBlue;
-			}
-		};
-		
-		MagicasItems.InitItems();
+	{		
 		MagicasItems.RegisterItems();
-		MagicasBlocks.InitBlocks();
 		MagicasBlocks.RegisterBlocks();
 		
 		//proxy.registerProxies();
+	}
+	
+	@EventHandler
+	public void PostInit(FMLPostInitializationEvent event)
+	{
+		
 	}
 }
