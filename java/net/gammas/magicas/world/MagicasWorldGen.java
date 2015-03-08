@@ -30,7 +30,7 @@ public class MagicasWorldGen implements IWorldGenerator
 	
 	private void GenerateSurface(World world, Random random, int chunkX, int chunkZ)
 	{
-		for (int i = 0; i < 16; i++)
+		for (int i = 0; i < 48; i++)
 		{
 			int randPosX = chunkX + random.nextInt(16);
 			int randPosY = random.nextInt(24);
@@ -39,7 +39,7 @@ public class MagicasWorldGen implements IWorldGenerator
 			(new WorldGenMinable(MagicasBlocks.fireEssenceOre, 3)).generate(world, random, randPosX, randPosY, randPosZ);
 		}
 		
-		for (int i = 0; i < 16; i++)
+		for (int i = 0; i < 48; i++)
 		{
 			int randPosX = chunkX + random.nextInt(16);
 			int randPosY = random.nextInt(54);
@@ -48,7 +48,7 @@ public class MagicasWorldGen implements IWorldGenerator
 			(new WorldGenMinable(MagicasBlocks.waterEssenceOre, 3)).generate(world, random, randPosX, randPosY, randPosZ);
 		}
 		
-		for (int i = 0; i < 16; i++)
+		for (int i = 0; i < 48; i++)
 		{
 			int randPosX = chunkX + random.nextInt(16);
 			int randPosY = random.nextInt(64);
@@ -57,7 +57,7 @@ public class MagicasWorldGen implements IWorldGenerator
 			(new WorldGenMinable(MagicasBlocks.earthEssenceOre, 3)).generate(world, random, randPosX, randPosY, randPosZ);
 		}
 		
-		for (int i = 0; i < 16; i++)
+		for (int i = 0; i < 48; i++)
 		{
 			int randPosX = chunkX + random.nextInt(16);
 			int randPosY = random.nextInt(64) + 64;
