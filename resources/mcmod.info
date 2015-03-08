@@ -1,0 +1,16 @@
+[
+{
+  "modid": "magicasmod",
+  "name": "Magicas Mod",
+  "description": "A Magical Mod",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["GammaS, Barnaby24"],
+  "credits": "None Currently",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
