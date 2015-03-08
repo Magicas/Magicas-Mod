@@ -1,0 +1,13 @@
+itemGroup.magicasTab=Magicas Mod
+container.essenceExtractor=Essence Extractor
+item.MagicWandBlue.name=Blue Magic Wand
+item.MagicWandGreen.name=Green Magic Wand
+item.MagicWandOrange.name=Orange Magic Wand
+item.FireEssence.name=Fire Essence
+item.WaterEssence.name=Water Essence
+item.EarthEssence.name=Earth Essence
+item.AirEssence.name=Air Essence
+item.BottleOfFireEssence.name=Bottle Of Fire Essence
+item.BottleOfWaterEssence.name=Bottle Of Water Essence
+item.BottleOfEarthEssence.name=Bottle Of Earth Essence
+item.BottleOfAirEssence.name=Bottle Of Air Essence

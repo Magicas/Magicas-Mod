@@ -19,6 +19,12 @@ public class MagicasItems
 	public static Item earthEssence;
 	public static Item airEssence;
 	
+	// Bottle Of Essence
+	public static Item bottleOfFireEssence;
+	public static Item bottleOfWaterEssence;
+	public static Item bottleOfEarthEssence;
+	public static Item bottleOfAirEssence;
+	
 	public static void InitItems()
 	{
 		// Magic Wands
@@ -31,6 +37,12 @@ public class MagicasItems
 		waterEssence = new ItemEssence().setUnlocalizedName("WaterEssence").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:WaterEssence");
 		earthEssence = new ItemEssence().setUnlocalizedName("EarthEssence").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:EarthEssence");
 		airEssence = new ItemEssence().setUnlocalizedName("AirEssence").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:AirEssence");
+		
+		// Bottle Of Essence
+		bottleOfFireEssence = new ItemEssence().setUnlocalizedName("BottleOfFireEssence").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:BottleOfFireEssence");
+		bottleOfWaterEssence = new ItemEssence().setUnlocalizedName("BottleOfWaterEssence").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:BottleOfWaterEssence");
+		bottleOfEarthEssence = new ItemEssence().setUnlocalizedName("BottleOfEarthEssence").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:BottleOfEarthEssence");
+		bottleOfAirEssence = new ItemEssence().setUnlocalizedName("BottleOfAirEssence").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:BottleOfAirEssence");
 	}
 	
 	public static void RegisterItems()
@@ -44,14 +56,9 @@ public class MagicasItems
 		GameRegistry.registerItem(waterEssence, waterEssence.getUnlocalizedName());
 		GameRegistry.registerItem(earthEssence, earthEssence.getUnlocalizedName());
 		GameRegistry.registerItem(airEssence, airEssence.getUnlocalizedName());
-		
-		// Language Registry
-		LanguageRegistry.addName(magicWandBlue, "Blue Magic Wand");
-		LanguageRegistry.addName(magicWandGreen, "Green Magic Wand");
-		LanguageRegistry.addName(magicWandOrange, "Orange Magic Wand");
-		LanguageRegistry.addName(fireEssence, "Fire Essence");
-		LanguageRegistry.addName(waterEssence, "Water Essence");
-		LanguageRegistry.addName(earthEssence, "Earth Essence");
-		LanguageRegistry.addName(airEssence, "Air Essence");
+		GameRegistry.registerItem(bottleOfFireEssence, bottleOfFireEssence.getUnlocalizedName());
+		GameRegistry.registerItem(bottleOfWaterEssence, bottleOfWaterEssence.getUnlocalizedName());
+		GameRegistry.registerItem(bottleOfEarthEssence, bottleOfEarthEssence.getUnlocalizedName());
+		GameRegistry.registerItem(bottleOfAirEssence, bottleOfAirEssence.getUnlocalizedName());
 	}
 }

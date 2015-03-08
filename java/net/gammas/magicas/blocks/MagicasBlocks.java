@@ -23,6 +23,7 @@ public class MagicasBlocks
 	// Machines
 	public static Block EssenceExtractorIdle;
 	public static Block EssenceExtractorActive;
+	public static final int GuiIDEssenceExtractor = 0;
 	
 	public static void InitBlocks()
 	{
@@ -52,12 +53,12 @@ public class MagicasBlocks
 		GameRegistry.registerBlock(EssenceExtractorActive, EssenceExtractorActive.getUnlocalizedName());
 		
 		// Language Registry
-		LanguageRegistry.addName(taintedGrass, "Tainted Grass");
-		LanguageRegistry.addName(fireEssenceOre, "Fire Essence Ore");
-		LanguageRegistry.addName(waterEssenceOre, "Water Essence Ore");
-		LanguageRegistry.addName(earthEssenceOre, "Earth Essence Ore");
-		LanguageRegistry.addName(airEssenceOre, "Air Essence Ore");
-		LanguageRegistry.addName(EssenceExtractorIdle, "Essence Extractor");
-		LanguageRegistry.addName(EssenceExtractorActive, "Essence Extractor");
+//		LanguageRegistry.addName(taintedGrass, "Tainted Grass");
+//		LanguageRegistry.addName(fireEssenceOre, "Fire Essence Ore");
+//		LanguageRegistry.addName(waterEssenceOre, "Water Essence Ore");
+//		LanguageRegistry.addName(earthEssenceOre, "Earth Essence Ore");
+//		LanguageRegistry.addName(airEssenceOre, "Air Essence Ore");
+//		LanguageRegistry.addName(EssenceExtractorIdle, "Essence Extractor");
+//		LanguageRegistry.addName(EssenceExtractorActive, "Essence Extractor");
 	}
 }

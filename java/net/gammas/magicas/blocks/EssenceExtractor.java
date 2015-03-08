@@ -1,14 +1,17 @@
 package net.gammas.magicas.blocks;
 
+import net.gammas.magicas.core.MagicasMod;
 import net.gammas.magicas.tileentites.TileEntityEssenceExtractor;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -59,7 +62,36 @@ public class EssenceExtractor extends BlockContainer
         this.bottom = iconRegister.registerIcon("magicasmod:EssenceExtractor_Bottom");
     }
 	
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
+	{
+		if (!world.isRemote)
+		{
+			FMLNetworkHandler.openGui(player, MagicasMod.instance, MagicasBlocks.GuiIDEssenceExtractor, world, x, y, z);
+		}
+		
+		return true;
+	}
 	
+	public static void updateBlockState(boolean isExtracting, World worldObj, int xCoord, int yCoord, int zCoord) {
+		int i = worldObj.getBlockMetadata(xCoord, yCoord, zCoord);
+			TileEntity entity = worldObj.getTileEntity(xCoord, yCoord, zCoord);
+	
+		if(isExtracting) 
+		{
+			worldObj.setBlock(xCoord, yCoord,zCoord, MagicasBlocks.EssenceExtractorIdle);
+		}
+		else
+		{
+			worldObj.setBlock(xCoord, yCoord,zCoord, MagicasBlocks.EssenceExtractorActive);
+		}
+		worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, i, 2);
+	
+		if(entity != null)
+		{
+			entity.validate();
+			worldObj.setTileEntity(xCoord, yCoord, zCoord, entity);
+		}
+}
 	
 	@Override
 	public TileEntity createNewTileEntity(World world, int p_149915_2_) 
