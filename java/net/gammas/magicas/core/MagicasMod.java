@@ -2,6 +2,7 @@ package net.gammas.magicas.core;
 
 import net.gammas.magicas.blocks.MagicasBlocks;
 import net.gammas.magicas.items.MagicasItems;
+import net.gammas.magicas.tileentites.MagicasTileEntities;
 import net.gammas.magicas.util.CommonProxy;
 import net.gammas.magicas.util.Referances;
 import net.gammas.magicas.world.MagicasWorld;
@@ -21,7 +22,7 @@ public class MagicasMod
 	//@SidedProxy(clientSide = "net.gammas.magicas.util.ClientProxy", serverSide = "net.gammas.magicas.util.CommonProxy")
 	//public static CommonProxy proxy;
 	
-	@Instance
+	@Instance(Referances.MODID)
 	public static MagicasMod instance;
 	
 	@EventHandler
@@ -31,6 +32,7 @@ public class MagicasMod
 		MagicasItems.InitItems();
 		MagicasBlocks.InitBlocks();
 		MagicasWorld.InitWorld();
+		MagicasTileEntities.InitTileEntities();
 	}
 	
 	@EventHandler
@@ -38,6 +40,7 @@ public class MagicasMod
 	{		
 		MagicasItems.RegisterItems();
 		MagicasBlocks.RegisterBlocks();
+		MagicasTileEntities.RegisterTileEntities();
 		
 		//proxy.registerProxies();
 	}

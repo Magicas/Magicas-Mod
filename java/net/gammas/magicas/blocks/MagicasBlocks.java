@@ -48,6 +48,8 @@ public class MagicasBlocks
 		GameRegistry.registerBlock(waterEssenceOre, waterEssenceOre.getUnlocalizedName());
 		GameRegistry.registerBlock(earthEssenceOre, earthEssenceOre.getUnlocalizedName());
 		GameRegistry.registerBlock(airEssenceOre, airEssenceOre.getUnlocalizedName());
+		GameRegistry.registerBlock(EssenceExtractorIdle, EssenceExtractorIdle.getUnlocalizedName());
+		GameRegistry.registerBlock(EssenceExtractorActive, EssenceExtractorActive.getUnlocalizedName());
 		
 		// Language Registry
 		LanguageRegistry.addName(taintedGrass, "Tainted Grass");
@@ -55,5 +57,7 @@ public class MagicasBlocks
 		LanguageRegistry.addName(waterEssenceOre, "Water Essence Ore");
 		LanguageRegistry.addName(earthEssenceOre, "Earth Essence Ore");
 		LanguageRegistry.addName(airEssenceOre, "Air Essence Ore");
+		LanguageRegistry.addName(EssenceExtractorIdle, "Essence Extractor");
+		LanguageRegistry.addName(EssenceExtractorActive, "Essence Extractor");
 	}
 }

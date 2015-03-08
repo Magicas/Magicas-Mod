@@ -22,9 +22,6 @@ public class BlockTaintedGrass extends Block
     private IIcon top;
 	@SideOnly(Side.CLIENT)
 	private IIcon bottom;
-    @SideOnly(Side.CLIENT)
-    private IIcon side_overlay;
-    private static final String __OBFID = "CL_00000251";
     
 	public BlockTaintedGrass()
     {
