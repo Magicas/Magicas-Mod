@@ -5,24 +5,24 @@ A Magical Mod For 1.7.10
 - Blue Magical Wand
 - Green Magical Wand
 - Orange Magical Wand
-
-# Current Blocks
-- Tainted Grass
-
-# Currrent Mobs
-
-# Planned Items
 - Fire Essence
 - Water Essence
 - Earth Essence
 - Air Essence
-- Book Of Spells
 
-# Planned Blocks
+# Current Blocks
+- Tainted Grass
 - Fire Essence Ore
 - Water Essence Ore
 - Earth Essence Ore
 - Air Essence Ore
+
+# Currrent Mobs
+
+# Planned Items
+- Book Of Spells
+
+# Planned Blocks
 
 # Planned Mobs
 - Fire Boss
