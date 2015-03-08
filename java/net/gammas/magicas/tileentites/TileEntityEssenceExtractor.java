@@ -23,7 +23,7 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 	public int cooktime;
 	public int power;
 	public static final int maxPower = 10000;
-	public static final int alloySpeed = 600;	
+	public static final int alloySpeed = 10;	
 	private static final int[] slots_top = new int[] {0};
 	private static final int[] slots_bottom = new int[] {1};
 	private static final int[] slots_side = new int[] {2};

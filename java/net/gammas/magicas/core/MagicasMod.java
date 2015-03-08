@@ -5,6 +5,7 @@ import net.gammas.magicas.items.MagicasItems;
 import net.gammas.magicas.tileentites.MagicasTileEntities;
 import net.gammas.magicas.util.CommonProxy;
 import net.gammas.magicas.util.GUIHandler;
+import net.gammas.magicas.util.MagicasCraftingManager;
 import net.gammas.magicas.util.Referances;
 import net.gammas.magicas.world.MagicasWorld;
 import net.minecraft.creativetab.CreativeTabs;
@@ -43,6 +44,7 @@ public class MagicasMod
 		MagicasItems.RegisterItems();
 		MagicasBlocks.RegisterBlocks();
 		MagicasTileEntities.RegisterTileEntities();
+		MagicasCraftingManager.RegisterRecipes();
 		
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GUIHandler());
 		
