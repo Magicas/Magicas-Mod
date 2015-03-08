@@ -16,6 +16,7 @@ A Magical Mod For 1.7.10
 - Water Essence
 - Earth Essence
 - Air Essence
+- Book Of Spells
 
 # Planned Blocks
 - Fire Essence Ore
