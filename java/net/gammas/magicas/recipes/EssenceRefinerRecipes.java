@@ -6,10 +6,10 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class EssenceExtractorRecipes 
+public class EssenceRefinerRecipes 
 {
 	
-	public EssenceExtractorRecipes() 
+	public EssenceRefinerRecipes() 
 	{
 		
 	}
@@ -21,35 +21,24 @@ public class EssenceExtractorRecipes
 	
 	public static ItemStack getOutput(Item item, Item item2)
 	{
-		//Recipe: EXAMPLE
-		if(item == MagicasItems.fireEssence && item2 == Items.glass_bottle ) 
-		{
-			return new ItemStack(MagicasItems.bottleOfFireEssence, 1);	
-		}
-		
-		if(item == MagicasItems.waterEssence && item2 == Items.glass_bottle ) 
-		{
-			return new ItemStack(MagicasItems.bottleOfWaterEssence, 1);	
-		}
-		
-		if(item == MagicasItems.earthEssence && item2 == Items.glass_bottle ) 
-		{
-			return new ItemStack(MagicasItems.bottleOfEarthEssence, 1);	
-		}
-		
-		if(item == MagicasItems.airEssence && item2 == Items.glass_bottle ) 
-		{
-			return new ItemStack(MagicasItems.bottleOfAirEssence, 1);	
-		}
-		
 		if (item == MagicasItems.fireEssence && item2 == MagicasItems.waterEssence)
 		{
-			return new ItemStack(MagicasItems.earthEssence);
+			return new ItemStack(MagicasItems.airEssence);
 		}
 		
 		if (item == MagicasItems.waterEssence && item2 == MagicasItems.fireEssence)
 		{
-			return new ItemStack(MagicasItems.earthEssence);
+			return new ItemStack(MagicasItems.airEssence);
+		}
+		
+		if (item == MagicasItems.earthEssence && item2 == MagicasItems.airEssence)
+		{
+			return new ItemStack(MagicasItems.waterEssence);
+		}
+		
+		if (item == MagicasItems.airEssence && item2 == MagicasItems.earthEssence)
+		{
+			return new ItemStack(MagicasItems.waterEssence);
 		}
 		
 		return null;
