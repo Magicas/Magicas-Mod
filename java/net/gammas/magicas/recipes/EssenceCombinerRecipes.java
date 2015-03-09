@@ -31,6 +31,26 @@ public class EssenceCombinerRecipes
 			return new ItemStack(MagicasItems.steamEssence, 1);
 		}
 		
+		if (item == MagicasItems.fireEssence && item2 == MagicasItems.earthEssence)
+		{
+			return new ItemStack(MagicasItems.lavaEssence, 1);
+		}
+		
+		if (item == MagicasItems.earthEssence && item2 == MagicasItems.fireEssence)
+		{
+			return new ItemStack(MagicasItems.lavaEssence, 1);
+		}
+		
+		if (item == MagicasItems.fireEssence && item2 == MagicasItems.airEssence)
+		{
+			return new ItemStack(MagicasItems.gasEssence, 1);
+		}
+		
+		if (item == MagicasItems.airEssence && item2 == MagicasItems.fireEssence)
+		{
+			return new ItemStack(MagicasItems.gasEssence, 1);
+		}
+		
 		return null;
 	}
 	
