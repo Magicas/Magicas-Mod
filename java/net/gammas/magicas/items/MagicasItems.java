@@ -32,6 +32,9 @@ public class MagicasItems
 	public static Item lifeEssence;
 	public static Item deathEssence;
 	
+	// Level 4
+	public static Item lightEssence;
+	
 	// Bottle Of Essence
 	public static Item bottleOfFireEssence;
 	public static Item bottleOfWaterEssence;
