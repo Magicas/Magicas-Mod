@@ -42,6 +42,11 @@ public class EssenceExtractorRecipes
 			return new ItemStack(MagicasItems.bottleOfAirEssence, 1);	
 		}
 		
+		if (item == MagicasItems.fireEssence && item2 == MagicasItems.waterEssence)
+		{
+			return new ItemStack(MagicasItems.earthEssence);
+		}
+		
 		return null;
 	}
 	
