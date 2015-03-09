@@ -14,34 +14,28 @@ public class EssenceSplitterRecipes
 		
 	}
 	
-	public static ItemStack getRecipe(Item item, Item item2) 
+	public static ItemStack getOutput1(Item item) 
 	{
-		return getOutput(item, item2);
+		if (item == MagicasItems.steamEssence)
+		{
+			return new ItemStack(MagicasItems.fireEssence);
+		}
 	}
 	
-	public static ItemStack getOutput(Item item, Item item2)
+	public static ItemStack getOutput2(Item item)
 	{
-		if (item == MagicasItems.fireEssence && item2 == MagicasItems.waterEssence)
-		{
-			return new ItemStack(MagicasItems.airEssence);
-		}
-		
-		if (item == MagicasItems.waterEssence && item2 == MagicasItems.fireEssence)
-		{
-			return new ItemStack(MagicasItems.airEssence);
-		}
-		
-		if (item == MagicasItems.earthEssence && item2 == MagicasItems.airEssence)
+		if (item == MagicasItems.steamEssence)
 		{
 			return new ItemStack(MagicasItems.waterEssence);
 		}
-		
-		if (item == MagicasItems.airEssence && item2 == MagicasItems.earthEssence)
+	}
+	
+	public static ItemStack getOutput3(Item item, Item item2)
+	{
+		if (item == MagicasItems.steamEssence)
 		{
-			return new ItemStack(MagicasItems.waterEssence);
+			return null;
 		}
-		
-		return null;
 	}
 	
 }
