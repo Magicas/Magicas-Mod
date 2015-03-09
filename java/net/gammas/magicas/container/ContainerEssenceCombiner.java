@@ -27,8 +27,8 @@ public class ContainerEssenceCombiner extends Container {
 		
 		
 		//TODO: GET COORDS FOR SLOTS!
-		this.addSlotToContainer(new Slot ((IInventory)teEssenceCombiner, 0, 66, 24));
-		this.addSlotToContainer(new Slot ((IInventory)teEssenceCombiner, 1, 66, 44));
+		this.addSlotToContainer(new Slot ((IInventory)teEssenceCombiner, 0, 30, 35));
+		this.addSlotToContainer(new Slot ((IInventory)teEssenceCombiner, 1, 68, 35));
 		this.addSlotToContainer(new SlotEssenceCombiner(invPlayer.player, teEssenceCombiner, 2, 124, 35));
 
 		for(int i = 0; i < 3; i++){
