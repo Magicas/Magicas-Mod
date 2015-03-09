@@ -23,7 +23,15 @@ public class MagicasBlocks
 	// Machines
 	public static Block EssenceExtractorIdle;
 	public static Block EssenceExtractorActive;
+	public static Block EssenceCombinerIdle;
+	public static Block EssenceCombinerActive;
+	public static Block EssenceSplitterIdle;
+	public static Block EssenceSplitterActive;
+	
+	// GUI IDs
 	public static final int GuiIDEssenceExtractor = 0;
+	public static final int GuiIDEssenceCombiner = 1;
+	public static final int GuiIDEssenceSplitter = 2;
 	
 	public static void InitBlocks()
 	{
@@ -39,6 +47,10 @@ public class MagicasBlocks
 		// Machines
 		EssenceExtractorIdle = new EssenceExtractor(false).setBlockName("essenceExtractorIdle").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas);
 		EssenceExtractorActive = new EssenceExtractor(true).setBlockName("essenceExtractorActive");
+		EssenceCombinerIdle = new EssenceCombiner(false).setBlockName("essenceCombinerIdle").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas);
+		EssenceCombinerActive = new EssenceCombiner(true).setBlockName("essenceCombinerActive");
+		EssenceSplitterIdle = new EssenceSplitter(false).setBlockName("essenceSplitterIdle").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas);
+		EssenceSplitterActive = new EssenceSplitter(true).setBlockName("essenceSplitterActive");
 	}
 	
 	public static void RegisterBlocks()
