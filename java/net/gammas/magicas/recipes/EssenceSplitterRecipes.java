@@ -20,6 +20,8 @@ public class EssenceSplitterRecipes
 		{
 			return new ItemStack(MagicasItems.fireEssence);
 		}
+		
+		return null;
 	}
 	
 	public static ItemStack getOutput2(Item item)
@@ -28,6 +30,8 @@ public class EssenceSplitterRecipes
 		{
 			return new ItemStack(MagicasItems.waterEssence);
 		}
+		
+		return null;
 	}
 	
 	public static ItemStack getOutput3(Item item, Item item2)
@@ -36,6 +40,8 @@ public class EssenceSplitterRecipes
 		{
 			return null;
 		}
+		
+		return null;
 	}
 	
 }
