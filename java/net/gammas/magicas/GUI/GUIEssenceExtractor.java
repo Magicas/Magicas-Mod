@@ -40,7 +40,7 @@ public class GUIEssenceExtractor extends GuiContainer{
 
         if (this.essenceExtractor.isExtracting())
         { 
-            int i1 = this.essenceExtractor.getAlloyingProcessScaled(24);
+            int i1 = this.essenceExtractor.getExtractingProcessScaled(24);
             this.drawTexturedModalRect(k + 89, l + 34, 176, 0, i1, 17);
         }
         

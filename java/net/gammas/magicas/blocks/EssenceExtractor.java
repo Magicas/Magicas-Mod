@@ -76,7 +76,7 @@ public class EssenceExtractor extends BlockContainer
 		int i = worldObj.getBlockMetadata(xCoord, yCoord, zCoord);
 			TileEntity entity = worldObj.getTileEntity(xCoord, yCoord, zCoord);
 	
-		if(isExtracting) 
+		if(!isExtracting) 
 		{
 			worldObj.setBlock(xCoord, yCoord,zCoord, MagicasBlocks.EssenceExtractorIdle);
 		}

@@ -17,11 +17,9 @@ public class ContainerEssenceExtractor extends Container {
 
 	private TileEntityEssenceExtractor essenceExtractor;
 	private int dualCookTime;
-	private int dualPower;
 	
 	public ContainerEssenceExtractor(InventoryPlayer invPlayer, TileEntityEssenceExtractor teEssenceExtractor){
 		dualCookTime = 0;
-		dualPower = 0;
 		
 		essenceExtractor = teEssenceExtractor;
 		
@@ -51,7 +49,6 @@ public class ContainerEssenceExtractor extends Container {
     {
         super.addCraftingToCrafters(crafting);
         crafting.sendProgressBarUpdate(this, 0, this.essenceExtractor.cooktime);
-        crafting.sendProgressBarUpdate(this, 1, this.essenceExtractor.power);
     }
 	
 
@@ -86,7 +83,7 @@ public class ContainerEssenceExtractor extends Container {
                         return null;
                     }
                 }
-                else if (essenceExtractor.hasItemPower(itemstack1))
+                else if (essenceExtractor.isItemEssence(itemstack1))
                 {
                     if (!this.mergeItemStack(itemstack1, 1, 2, false))
                     {
@@ -142,14 +139,8 @@ public class ContainerEssenceExtractor extends Container {
 	            {
 	                icrafting.sendProgressBarUpdate(this, 0, this.essenceExtractor.cooktime);
 	            }
-
-	            if (this.dualPower != this.essenceExtractor.power)
-	            {
-	                icrafting.sendProgressBarUpdate(this, 1, this.essenceExtractor.power);
-	            }
 	        }
 	        this.dualCookTime = this.essenceExtractor.cooktime;
-			this.dualPower = this.essenceExtractor.power;
 
 	    }
 	
@@ -159,11 +150,6 @@ public class ContainerEssenceExtractor extends Container {
 	        if (i == 0)
 	        {
 	            this.essenceExtractor.cooktime = j;
-	        }
-
-	        if (i == 1)
-	        {
-	            this.essenceExtractor.power = j;
 	        }
 
 	    }
