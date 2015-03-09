@@ -78,11 +78,11 @@ public class EssenceCombiner extends BlockContainer
 	
 		if(isExtracting) 
 		{
-			worldObj.setBlock(xCoord, yCoord,zCoord, MagicasBlocks.EssenceExtractorIdle);
+			worldObj.setBlock(xCoord, yCoord,zCoord, MagicasBlocks.EssenceCombinerIdle);
 		}
 		else
 		{
-			worldObj.setBlock(xCoord, yCoord,zCoord, MagicasBlocks.EssenceExtractorActive);
+			worldObj.setBlock(xCoord, yCoord,zCoord, MagicasBlocks.EssenceCombinerActive);
 		}
 		worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, i, 2);
 	
