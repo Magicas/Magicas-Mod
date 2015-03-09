@@ -14,10 +14,23 @@ public class MagicasItems
 	public static Item magicWandOrange;
 	
 	// Essence
+	
+	// Base
 	public static Item fireEssence;
 	public static Item waterEssence;
 	public static Item earthEssence;
 	public static Item airEssence;
+	
+	// Level 2
+	public static Item steamEssence;
+	public static Item lavaEssence;
+	public static Item gasEssence;
+	public static Item mudEssence;
+	
+	// Level 3
+	public static Item explosiveEssence;
+	public static Item lifeEssence;
+	public static Item deathEssence;
 	
 	// Bottle Of Essence
 	public static Item bottleOfFireEssence;
