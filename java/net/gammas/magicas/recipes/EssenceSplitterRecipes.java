@@ -18,7 +18,7 @@ public class EssenceSplitterRecipes
 	{
 		if (item == MagicasItems.steamEssence)
 		{
-			return new ItemStack(MagicasItems.fireEssence);
+			return new ItemStack(MagicasItems.fireEssence, 1);
 		}
 		
 		return null;
@@ -28,7 +28,7 @@ public class EssenceSplitterRecipes
 	{
 		if (item == MagicasItems.steamEssence)
 		{
-			return new ItemStack(MagicasItems.waterEssence);
+			return new ItemStack(MagicasItems.waterEssence, 1);
 		}
 		
 		return null;
