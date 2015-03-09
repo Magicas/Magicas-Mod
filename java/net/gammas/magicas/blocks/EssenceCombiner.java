@@ -1,6 +1,7 @@
 package net.gammas.magicas.blocks;
 
 import net.gammas.magicas.core.MagicasMod;
+import net.gammas.magicas.tileentites.TileEntityEssenceCombiner;
 import net.gammas.magicas.tileentites.TileEntityEssenceExtractor;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -24,7 +25,7 @@ public class EssenceCombiner extends BlockContainer
 	 @SideOnly(Side.CLIENT)
 	 private IIcon bottom;
 	
-	public EssenceExtractor(boolean isActive) 
+	public EssenceCombiner(boolean isActive) 
 	{
 		super(Material.iron);
 		this.isActive = isActive;

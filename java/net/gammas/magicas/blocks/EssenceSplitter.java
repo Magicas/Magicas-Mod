@@ -24,7 +24,7 @@ public class EssenceSplitter extends BlockContainer
 	 @SideOnly(Side.CLIENT)
 	 private IIcon bottom;
 	
-	public EssenceExtractor(boolean isActive) 
+	public EssenceSplitter(boolean isActive) 
 	{
 		super(Material.iron);
 		this.isActive = isActive;
@@ -96,7 +96,7 @@ public class EssenceSplitter extends BlockContainer
 	@Override
 	public TileEntity createNewTileEntity(World world, int p_149915_2_) 
 	{
-		return new TileEntityEssenceSplitter();
+		return null; //new TileEntityEssenceSplitter();
 	}
 
 }

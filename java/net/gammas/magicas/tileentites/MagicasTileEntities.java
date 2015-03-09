@@ -12,5 +12,6 @@ public class MagicasTileEntities
 	public static void RegisterTileEntities()
 	{
 		GameRegistry.registerTileEntity(TileEntityEssenceExtractor.class, "EssenceExtractor");
+		GameRegistry.registerTileEntity(TileEntityEssenceCombiner.class, "EssenceCombiner");
 	}
 }

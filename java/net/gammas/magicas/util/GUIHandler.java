@@ -1,8 +1,11 @@
 package net.gammas.magicas.util;
 
+import net.gammas.magicas.GUI.GUIEssenceCombiner;
 import net.gammas.magicas.GUI.GUIEssenceExtractor;
 import net.gammas.magicas.blocks.MagicasBlocks;
+import net.gammas.magicas.container.ContainerEssenceCombiner;
 import net.gammas.magicas.container.ContainerEssenceExtractor;
+import net.gammas.magicas.tileentites.TileEntityEssenceCombiner;
 import net.gammas.magicas.tileentites.TileEntityEssenceExtractor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
@@ -27,6 +30,12 @@ public class GUIHandler implements IGuiHandler
 					return new ContainerEssenceExtractor(player.inventory, (TileEntityEssenceExtractor) entity);
 				}
 				return null;
+			case MagicasBlocks.GuiIDEssenceCombiner:
+				if (entity instanceof TileEntityEssenceCombiner)
+				{
+					return new ContainerEssenceCombiner(player.inventory, (TileEntityEssenceCombiner) entity);
+				}
+				return null;
 			}
 		}
 		return null;
@@ -45,6 +54,12 @@ public class GUIHandler implements IGuiHandler
 				if (entity instanceof TileEntityEssenceExtractor)
 				{
 					return new GUIEssenceExtractor(player.inventory, (TileEntityEssenceExtractor) entity);
+				}
+				return null;
+			case MagicasBlocks.GuiIDEssenceCombiner:
+				if (entity instanceof TileEntityEssenceCombiner)
+				{
+					return new GUIEssenceCombiner(player.inventory, (TileEntityEssenceCombiner) entity);
 				}
 				return null;
 			}

@@ -1,7 +1,8 @@
 package net.gammas.magicas.tileentites;
 
-import net.gammas.magicas.blocks.EssenceExtractor;
+import net.gammas.magicas.blocks.EssenceCombiner;
 import net.gammas.magicas.items.MagicasItems;
+import net.gammas.magicas.recipes.EssenceCombinerRecipes;
 import net.gammas.magicas.recipes.EssenceExtractorRecipes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -16,15 +17,15 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityEssenceExtractor extends TileEntity implements ISidedInventory
+public class TileEntityEssenceCombiner extends TileEntity implements ISidedInventory
 {
 
 	private ItemStack slots[];
 	private String customName;
-	public boolean isExtracting;
+	public boolean isCombining;
 
 	public int cooktime;
-	public static final int extractingSpeed = 10;
+	public static final int combiningSpeed = 100;
 	private static final int[] slots_top = new int[]
 	{ 0 };
 	private static final int[] slots_bottom = new int[]
@@ -32,7 +33,7 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 	private static final int[] slots_side = new int[]
 	{ 2 };
 
-	public TileEntityEssenceExtractor()
+	public TileEntityEssenceCombiner()
 	{
 		slots = new ItemStack[3];
 	}
@@ -100,7 +101,7 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 	@Override
 	public String getInventoryName()
 	{
-		return "container.essenceExtractor";
+		return "container.essenceCombiner";
 	}
 
 	@Override
@@ -151,15 +152,14 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 			{
 				return true;
 			}
-		}
-		else if (slot == 1)
+		} else if (slot == 1)
 		{
-			if (is.getItem() == Items.glass_bottle)
+			if (isItemEssence(is))
 			{
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
 
@@ -173,8 +173,7 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 		if (is == null)
 		{
 			return 0;
-		} 
-		else
+		} else
 		{
 			Item item = is.getItem();
 
@@ -261,7 +260,7 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 
 	public int getExtractingProcessScaled(int i)
 	{
-		return (cooktime * i) / this.extractingSpeed;
+		return (cooktime * i) / this.combiningSpeed;
 	}
 
 	private boolean canExtract()
@@ -272,28 +271,27 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 			return false;
 		}
 
-		ItemStack itemstack = EssenceExtractorRecipes.getRecipe(slots[0].getItem(), slots[1].getItem());
+		ItemStack itemstack = EssenceCombinerRecipes.getRecipe(slots[0].getItem(), slots[1].getItem());
 
 		if (itemstack == null)
 		{
 			return false;
 		}
-		
+
 		if (slots[2] == null)
 		{
 			return true;
 		}
-		
+
 		if (!slots[2].isItemEqual(itemstack))
 		{
 			return false;
 		}
-		
+
 		if (slots[2].stackSize < getInventoryStackLimit() && slots[2].stackSize < slots[2].getMaxStackSize())
 		{
 			return true;
-		} 
-		else
+		} else
 		{
 			return slots[2].stackSize < itemstack.getMaxStackSize();
 		}
@@ -303,13 +301,12 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 	{
 		if (canExtract())
 		{
-			ItemStack itemstack = EssenceExtractorRecipes.getRecipe(slots[0].getItem(), slots[1].getItem());
+			ItemStack itemstack = EssenceCombinerRecipes.getRecipe(slots[0].getItem(), slots[1].getItem());
 
 			if (slots[2] == null)
 			{
 				slots[2] = itemstack.copy();
-			} 
-			else if (slots[2].isItemEqual(itemstack))
+			} else if (slots[2].isItemEqual(itemstack))
 			{
 				slots[2].stackSize += itemstack.stackSize;
 			}
@@ -319,12 +316,11 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 				if (slots[i].stackSize <= 0)
 				{
 					slots[i] = new ItemStack(slots[i].getItem().setFull3D());
-				} 
-				else
+				} else
 				{
 					slots[i].stackSize--;
 				}
-				
+
 				if (slots[i].stackSize <= 0)
 				{
 					slots[i] = null;
@@ -338,17 +334,17 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 	public void updateEntity()
 	{
 		boolean flag1 = false;
-		
+
 		if (canExtract())
 		{
 			cooktime++;
-			isExtracting = true;
+			isCombining = true;
 
-			if (this.cooktime == this.extractingSpeed)
+			if (this.cooktime == this.combiningSpeed)
 			{
 				this.cooktime = 0;
 				this.extract();
-				isExtracting = false;
+				isCombining = false;
 				flag1 = true;
 			}
 		} 
@@ -357,14 +353,13 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 			cooktime = 0;
 		}
 
-		if (isExtracting)
+		if (isCombining)
 		{
 			flag1 = true;
-			EssenceExtractor.updateBlockState(isExtracting, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
-		}
-		else
+			EssenceCombiner.updateBlockState(isCombining, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
+		} else
 		{
-			EssenceExtractor.updateBlockState(isExtracting, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
+			EssenceCombiner.updateBlockState(isCombining, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
 		}
 
 		if (flag1)

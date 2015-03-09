@@ -63,6 +63,8 @@ public class MagicasBlocks
 		GameRegistry.registerBlock(airEssenceOre, airEssenceOre.getUnlocalizedName());
 		GameRegistry.registerBlock(EssenceExtractorIdle, EssenceExtractorIdle.getUnlocalizedName());
 		GameRegistry.registerBlock(EssenceExtractorActive, EssenceExtractorActive.getUnlocalizedName());
+		GameRegistry.registerBlock(EssenceCombinerIdle, EssenceCombinerIdle.getUnlocalizedName());
+		GameRegistry.registerBlock(EssenceCombinerActive, EssenceCombinerActive.getUnlocalizedName());
 		
 		// Language Registry
 //		LanguageRegistry.addName(taintedGrass, "Tainted Grass");

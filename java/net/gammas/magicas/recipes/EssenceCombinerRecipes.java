@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 public class EssenceCombinerRecipes 
 {
 	
-	public EssenceRefinerRecipes() 
+	public EssenceCombinerRecipes() 
 	{
 		
 	}
@@ -39,16 +39,6 @@ public class EssenceCombinerRecipes
 		if (item == MagicasItems.earthEssence && item2 == MagicasItems.fireEssence)
 		{
 			return new ItemStack(MagicasItems.lavaEssence, 1);
-		}
-		
-		if (item == MagicasItems.fireEssence && item2 == MagicasItems.airEssence)
-		{
-			return new ItemStack(MagicasItems.gasEssence, 1);
-		}
-		
-		if (item == MagicasItems.airEssence && item2 == MagicasItems.fireEssence)
-		{
-			return new ItemStack(MagicasItems.gasEssence, 1);
 		}
 		
 		return null;
