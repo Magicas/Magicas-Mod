@@ -42,9 +42,14 @@ public class EssenceExtractorRecipes
 			return new ItemStack(MagicasItems.bottleOfAirEssence, 1);	
 		}
 		
-		if (item == MagicasItems.fireEssence && item2 == MagicasItems.waterEssence)
+		if (item == MagicasItems.steamEssence && item2 == Items.glass_bottle)
 		{
-			return new ItemStack(MagicasItems.earthEssence);
+			return new ItemStack(MagicasItems.bottleOfSteamEssence, 1);
+		}
+		
+		if (item == MagicasItems.lavaEssence && item2 == Items.glass_bottle)
+		{
+			return new ItemStack(MagicasItems.bottleOfLavaEssence, 1);
 		}
 		
 		return null;
