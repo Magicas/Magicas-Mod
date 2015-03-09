@@ -66,7 +66,7 @@ public class EssenceSplitter extends BlockContainer
 	{
 		if (!world.isRemote)
 		{
-			FMLNetworkHandler.openGui(player, MagicasMod.instance, MagicasBlocks.GuiIDEssenceExtractor, world, x, y, z);
+			FMLNetworkHandler.openGui(player, MagicasMod.instance, MagicasBlocks.GuiIDEssenceSplitter, world, x, y, z);
 		}
 		
 		return true;
