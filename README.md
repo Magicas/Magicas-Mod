@@ -9,6 +9,10 @@ A Magical Mod For 1.7.10
 - Water Essence
 - Earth Essence
 - Air Essence
+- Fire Essence Bottle
+- Water Essence Bottle
+- Earth Essence Bottle
+- Air Essence Bottle
 
 # Current Blocks
 - Tainted Grass
@@ -16,13 +20,17 @@ A Magical Mod For 1.7.10
 - Water Essence Ore
 - Earth Essence Ore
 - Air Essence Ore
+- Essence Extractor
 
 # Currrent Mobs
 
 # Planned Items
 - Book Of Spells
+- Lots Of Different Essences!
 
 # Planned Blocks
+- Essence Combiner
+- Essence Spliter
 
 # Planned Mobs
 - Fire Boss
