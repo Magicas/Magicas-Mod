@@ -21,6 +21,11 @@ public class EssenceSplitterRecipes
 			return new ItemStack(MagicasItems.fireEssence, 1);
 		}
 		
+		if (item == MagicasItems.lavaEssence)
+		{
+			return new ItemStack(MagicasItems.fireEssence, 1);
+		}
+		
 		return null;
 	}
 	
@@ -30,6 +35,11 @@ public class EssenceSplitterRecipes
 		{
 			return new ItemStack(MagicasItems.waterEssence, 1);
 		}
+
+		if (item == MagicasItems.lavaEssence)
+		{
+			return new ItemStack(MagicasItems.earthEssence, 1);
+		}
 		
 		return null;
 	}
@@ -37,6 +47,11 @@ public class EssenceSplitterRecipes
 	public static ItemStack getOutput3(Item item, Item item2)
 	{
 		if (item == MagicasItems.steamEssence)
+		{
+			return null;
+		}
+
+		if (item == MagicasItems.lavaEssence)
 		{
 			return null;
 		}
