@@ -24,8 +24,8 @@ public class MagicasItems
 	// Level 2
 	public static Item steamEssence;
 	public static Item lavaEssence;
-	public static Item gasEssence;
 	public static Item mudEssence;
+	public static Item gasEssence;
 	
 	// Level 3
 	public static Item explosiveEssence;
@@ -53,6 +53,9 @@ public class MagicasItems
 		waterEssence = new ItemEssence().setUnlocalizedName("WaterEssence").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:WaterEssence");
 		earthEssence = new ItemEssence().setUnlocalizedName("EarthEssence").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:EarthEssence");
 		airEssence = new ItemEssence().setUnlocalizedName("AirEssence").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:AirEssence");
+		steamEssence = new ItemEssence().setUnlocalizedName("SteamEssence").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:SteamEssence");
+		mudEssence = new ItemEssence().setUnlocalizedName("MudEssence").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:MudEssence");
+		gasEssence = new ItemEssence().setUnlocalizedName("GasEssence").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:GasEssence");
 		
 		// Bottle Of Essence
 		bottleOfFireEssence = new ItemEssence().setUnlocalizedName("BottleOfFireEssence").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:BottleOfFireEssence");
