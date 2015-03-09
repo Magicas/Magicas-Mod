@@ -23,22 +23,12 @@ public class EssenceCombinerRecipes
 	{
 		if (item == MagicasItems.fireEssence && item2 == MagicasItems.waterEssence)
 		{
-			return new ItemStack(MagicasItems.airEssence);
+			return new ItemStack(MagicasItems.steamEssence);
 		}
 		
 		if (item == MagicasItems.waterEssence && item2 == MagicasItems.fireEssence)
 		{
-			return new ItemStack(MagicasItems.airEssence);
-		}
-		
-		if (item == MagicasItems.earthEssence && item2 == MagicasItems.airEssence)
-		{
-			return new ItemStack(MagicasItems.waterEssence);
-		}
-		
-		if (item == MagicasItems.airEssence && item2 == MagicasItems.earthEssence)
-		{
-			return new ItemStack(MagicasItems.waterEssence);
+			return new ItemStack(MagicasItems.steamEssence);
 		}
 		
 		return null;
