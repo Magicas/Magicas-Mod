@@ -15,11 +15,19 @@ public class MagicasItems
 	
 	// Essence
 	
+	// Chunks
+	public static Item fireEssenceChunk;
+	public static Item waterEssenceChunk;
+	public static Item earthEssenceChunk;
+	public static Item airEssenceChunk;
+	
+	// Shards 
+	
 	// Base
-	public static Item fireEssence;
-	public static Item waterEssence;
-	public static Item earthEssence;
-	public static Item airEssence;
+	public static Item fireEssenceShard;
+	public static Item waterEssenceShard;
+	public static Item earthEssenceShard;
+	public static Item airEssenceShard;
 	
 	// Level 2
 	public static Item steamEssence;
@@ -34,14 +42,6 @@ public class MagicasItems
 	// Level 4
 	public static Item lightEssence;
 	
-	// Bottle Of Essence
-	public static Item bottleOfFireEssence;
-	public static Item bottleOfWaterEssence;
-	public static Item bottleOfEarthEssence;
-	public static Item bottleOfAirEssence;
-	public static Item bottleOfSteamEssence;
-	public static Item bottleOfLavaEssence;
-	
 	public static void InitItems()
 	{
 		// Magic Wands
@@ -50,20 +50,20 @@ public class MagicasItems
 		magicWandOrange = new ItemMagicWand(5).setUnlocalizedName("MagicWandOrange").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:MagicWandOrange");
 		
 		// Essence
-		fireEssence = new ItemEssence().setUnlocalizedName("FireEssence").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:FireEssence");
-		waterEssence = new ItemEssence().setUnlocalizedName("WaterEssence").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:WaterEssence");
-		earthEssence = new ItemEssence().setUnlocalizedName("EarthEssence").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:EarthEssence");
-		airEssence = new ItemEssence().setUnlocalizedName("AirEssence").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:AirEssence");
+		
+		// Chunks
+		fireEssenceChunk = new ItemEssence().setUnlocalizedName("FireEssenceChunk").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:FireEssenceChunk");
+		waterEssenceChunk = new ItemEssence().setUnlocalizedName("WaterEssenceChunk").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:WaterEssenceChunk");
+		earthEssenceChunk = new ItemEssence().setUnlocalizedName("EarthEssenceChunk").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:EarthEssenceChunk");
+		airEssenceChunk = new ItemEssence().setUnlocalizedName("AirEssenceChunk").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:AirEssenceChunk");
+		
+		// Shards
+		fireEssenceShard = new ItemEssence().setUnlocalizedName("FireEssenceShard").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:FireEssenceShard");
+		waterEssenceShard = new ItemEssence().setUnlocalizedName("WaterEssenceShard").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:WaterEssenceShard");
+		earthEssenceShard = new ItemEssence().setUnlocalizedName("EarthEssenceShard").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:EarthEssenceShard");
+		airEssenceShard = new ItemEssence().setUnlocalizedName("AirEssenceShard").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:AirEssenceShard");
 		steamEssence = new ItemEssence().setUnlocalizedName("SteamEssence").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:SteamEssence");
 		lavaEssence = new ItemEssence().setUnlocalizedName("LavaEssence").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:LavaEssence");
-		
-		// Bottle Of Essence
-		bottleOfFireEssence = new ItemEssence().setUnlocalizedName("BottleOfFireEssence").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:BottleOfFireEssence");
-		bottleOfWaterEssence = new ItemEssence().setUnlocalizedName("BottleOfWaterEssence").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:BottleOfWaterEssence");
-		bottleOfEarthEssence = new ItemEssence().setUnlocalizedName("BottleOfEarthEssence").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:BottleOfEarthEssence");
-		bottleOfAirEssence = new ItemEssence().setUnlocalizedName("BottleOfAirEssence").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:BottleOfAirEssence");
-		bottleOfSteamEssence = new ItemEssence().setUnlocalizedName("BottleOfSteamEssence").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:BottleOfSteamEssence");
-		bottleOfLavaEssence = new ItemEssence().setUnlocalizedName("BottleOfLavaEssence").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:BottleOfLavaEssence");
 	}
 	
 	public static void RegisterItems()
@@ -73,16 +73,14 @@ public class MagicasItems
 		GameRegistry.registerItem(magicWandBlue, magicWandBlue.getUnlocalizedName());
 		GameRegistry.registerItem(magicWandGreen, magicWandGreen.getUnlocalizedName());
 		GameRegistry.registerItem(magicWandOrange, magicWandOrange.getUnlocalizedName());
-		GameRegistry.registerItem(fireEssence, fireEssence.getUnlocalizedName());
-		GameRegistry.registerItem(waterEssence, waterEssence.getUnlocalizedName());
-		GameRegistry.registerItem(earthEssence, earthEssence.getUnlocalizedName());
-		GameRegistry.registerItem(airEssence, airEssence.getUnlocalizedName());
-		GameRegistry.registerItem(bottleOfFireEssence, bottleOfFireEssence.getUnlocalizedName());
-		GameRegistry.registerItem(bottleOfWaterEssence, bottleOfWaterEssence.getUnlocalizedName());
-		GameRegistry.registerItem(bottleOfEarthEssence, bottleOfEarthEssence.getUnlocalizedName());
-		GameRegistry.registerItem(bottleOfAirEssence, bottleOfAirEssence.getUnlocalizedName());
-		GameRegistry.registerItem(bottleOfSteamEssence, bottleOfSteamEssence.getUnlocalizedName());
-		GameRegistry.registerItem(bottleOfLavaEssence, bottleOfLavaEssence.getUnlocalizedName());
+		GameRegistry.registerItem(fireEssenceShard, fireEssenceShard.getUnlocalizedName());
+		GameRegistry.registerItem(waterEssenceShard, waterEssenceShard.getUnlocalizedName());
+		GameRegistry.registerItem(earthEssenceShard, earthEssenceShard.getUnlocalizedName());
+		GameRegistry.registerItem(airEssenceShard, airEssenceShard.getUnlocalizedName());
+		GameRegistry.registerItem(fireEssenceChunk, fireEssenceChunk.getUnlocalizedName());
+		GameRegistry.registerItem(waterEssenceChunk, waterEssenceChunk.getUnlocalizedName());
+		GameRegistry.registerItem(earthEssenceChunk, earthEssenceChunk.getUnlocalizedName());
+		GameRegistry.registerItem(airEssenceChunk, airEssenceChunk.getUnlocalizedName());
 		GameRegistry.registerItem(steamEssence, steamEssence.getUnlocalizedName());
 		GameRegistry.registerItem(lavaEssence, lavaEssence.getUnlocalizedName());
 	}
