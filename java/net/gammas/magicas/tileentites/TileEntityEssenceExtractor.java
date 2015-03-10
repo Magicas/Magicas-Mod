@@ -24,13 +24,13 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 	public boolean isExtracting;
 
 	public int cooktime;
-	public static final int extractingSpeed = 10;
+	public static final int extractingSpeed = 100;
 	private static final int[] slots_top = new int[]
 	{ 0 };
 	private static final int[] slots_bottom = new int[]
-	{ 1 };
-	private static final int[] slots_side = new int[]
 	{ 2 };
+	private static final int[] slots_side = new int[]
+	{ 1 };
 
 	public TileEntityEssenceExtractor()
 	{

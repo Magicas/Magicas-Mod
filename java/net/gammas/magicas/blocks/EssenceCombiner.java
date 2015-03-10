@@ -3,6 +3,7 @@ package net.gammas.magicas.blocks;
 import net.gammas.magicas.core.MagicasMod;
 import net.gammas.magicas.tileentites.TileEntityEssenceCombiner;
 import net.gammas.magicas.tileentites.TileEntityEssenceExtractor;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -29,6 +30,9 @@ public class EssenceCombiner extends BlockContainer
 	{
 		super(Material.iron);
 		this.isActive = isActive;
+		setHardness(5f);
+		setStepSound(Block.soundTypeMetal);
+		setHarvestLevel("pickaxe", 2);
 	}
 	
     @SideOnly(Side.CLIENT)

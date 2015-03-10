@@ -1,15 +1,16 @@
 package net.gammas.magicas.container;
 
 import net.gammas.magicas.slot.SlotEssenceExtractor;
+import net.gammas.magicas.slot.SlotEssenceExtractorBottle;
 import net.gammas.magicas.tileentites.TileEntityEssenceExtractor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.FurnaceRecipes;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -24,7 +25,7 @@ public class ContainerEssenceExtractor extends Container {
 		essenceExtractor = teEssenceExtractor;
 		
 		this.addSlotToContainer(new Slot ((IInventory)teEssenceExtractor, 0, 66, 24));
-		this.addSlotToContainer(new Slot ((IInventory)teEssenceExtractor, 1, 66, 44));
+		this.addSlotToContainer(new SlotEssenceExtractorBottle (invPlayer.player, teEssenceExtractor, 1, 66, 44));
 		this.addSlotToContainer(new SlotEssenceExtractor(invPlayer.player, teEssenceExtractor, 2, 124, 35));
 
 		for(int i = 0; i < 3; i++){
@@ -76,14 +77,14 @@ public class ContainerEssenceExtractor extends Container {
             }
             else if (p_82846_2_ != 1 && p_82846_2_ != 0)
             {
-                if (FurnaceRecipes.smelting().getSmeltingResult(itemstack1) != null)
+                if (essenceExtractor.isItemEssence(itemstack1))
                 {
                     if (!this.mergeItemStack(itemstack1, 0, 1, false))
                     {
                         return null;
                     }
                 }
-                else if (essenceExtractor.isItemEssence(itemstack1))
+                else if (itemstack.getItem() == Items.glass_bottle)
                 {
                     if (!this.mergeItemStack(itemstack1, 1, 2, false))
                     {
