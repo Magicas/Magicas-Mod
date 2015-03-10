@@ -21,25 +21,25 @@ public class EssenceCombinerRecipes
 	
 	public static ItemStack getOutput(Item item, Item item2)
 	{
-//		if (item == MagicasItems.fireEssence && item2 == MagicasItems.waterEssence)
-//		{
-//			return new ItemStack(MagicasItems.steamEssence, 1);
-//		}
-//		
-//		if (item == MagicasItems.waterEssence && item2 == MagicasItems.fireEssence)
-//		{
-//			return new ItemStack(MagicasItems.steamEssence, 1);
-//		}
-//		
-//		if (item == MagicasItems.fireEssence && item2 == MagicasItems.earthEssence)
-//		{
-//			return new ItemStack(MagicasItems.lavaEssence, 1);
-//		}
-//		
-//		if (item == MagicasItems.earthEssence && item2 == MagicasItems.fireEssence)
-//		{
-//			return new ItemStack(MagicasItems.lavaEssence, 1);
-//		}
+		if (item == MagicasItems.fireEssenceShard && item2 == MagicasItems.waterEssenceShard)
+		{
+			return new ItemStack(MagicasItems.steamEssence, 1);
+		}
+		
+		if (item == MagicasItems.waterEssenceShard && item2 == MagicasItems.fireEssenceShard)
+		{
+			return new ItemStack(MagicasItems.steamEssence, 1);
+		}
+		
+		if (item == MagicasItems.fireEssenceShard && item2 == MagicasItems.earthEssenceShard)
+		{
+			return new ItemStack(MagicasItems.lavaEssence, 1);
+		}
+		
+		if (item == MagicasItems.earthEssenceShard && item2 == MagicasItems.fireEssenceShard)
+		{
+			return new ItemStack(MagicasItems.lavaEssence, 1);
+		}
 		
 		return null;
 	}
