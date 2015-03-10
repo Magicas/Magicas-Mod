@@ -1,9 +1,14 @@
 package net.gammas.magicas.util;
 
-public class ClientProxy 
+import net.gammas.magicas.models.TileEntityEssenceExtractorRenderer;
+import net.gammas.magicas.tileentites.TileEntityEssenceExtractor;
+import cpw.mods.fml.client.registry.ClientRegistry;
+
+public class ClientProxy extends CommonProxy
 {
-	public void registerProxies()
+	@Override
+	public void registerRenderers()
 	{
-		
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityEssenceExtractor.class, new TileEntityEssenceExtractorRenderer());
 	}
 }

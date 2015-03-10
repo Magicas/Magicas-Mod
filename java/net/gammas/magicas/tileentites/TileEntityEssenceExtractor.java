@@ -357,16 +357,6 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 			cooktime = 0;
 		}
 
-		if (isExtracting)
-		{
-			flag1 = true;
-			EssenceExtractor.updateBlockState(isExtracting, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
-		}
-		else
-		{
-			EssenceExtractor.updateBlockState(isExtracting, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
-		}
-
 		if (flag1)
 		{
 			this.markDirty();

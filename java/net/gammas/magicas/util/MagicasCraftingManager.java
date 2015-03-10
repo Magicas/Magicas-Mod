@@ -19,7 +19,7 @@ public class MagicasCraftingManager
 		
 		// Shaped
 		GameRegistry.addRecipe(new ItemStack(MagicasBlocks.EssenceExtractorIdle, 1), new Object[] { "III", "ICI", "WWW", 'I', Items.iron_ingot, 'W', Blocks.planks, 'C', Items.quartz });
-		GameRegistry.addRecipe(new ItemStack(MagicasBlocks.EssenceCombinerIdle, 1), new Object[] { "GGG", "GCG", "WWW", 'I', Items.gold_ingot, 'W', Blocks.planks, 'C', Items.quartz });
+		GameRegistry.addRecipe(new ItemStack(MagicasBlocks.EssenceCombinerIdle, 1), new Object[] { "GGG", "GCG", "WWW", 'G', Items.gold_ingot, 'W', Blocks.planks, 'C', Items.quartz });
 		
 		
 		// Shapeless

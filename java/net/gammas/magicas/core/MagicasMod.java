@@ -22,8 +22,8 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 @Mod(modid = Referances.MODID, name = Referances.MODNAME, version = Referances.VERSION)
 public class MagicasMod 
 {
-	//@SidedProxy(clientSide = "net.gammas.magicas.util.ClientProxy", serverSide = "net.gammas.magicas.util.CommonProxy")
-	//public static CommonProxy proxy;
+	@SidedProxy(clientSide = "net.gammas.magicas.util.ClientProxy", serverSide = "net.gammas.magicas.util.CommonProxy")
+	public static CommonProxy proxy;
 	
 	@Instance(Referances.MODID)
 	public static MagicasMod instance;
@@ -48,7 +48,7 @@ public class MagicasMod
 		
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GUIHandler());
 		
-		//proxy.registerProxies();
+		proxy.registerRenderers();
 	}
 	
 	@EventHandler
