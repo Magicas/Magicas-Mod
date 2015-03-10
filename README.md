@@ -1,5 +1,5 @@
-# Magicas-Mod
-A Magical Mod For 1.7.10
+# Magicas-Mod Build 1.0.1
+This is the build for 1.0.1, which will be added as the next major update!
 
 # Current Items
 - Blue Magical Wand
