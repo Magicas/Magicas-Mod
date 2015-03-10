@@ -1,7 +1,8 @@
 package net.gammas.magicas.container;
 
 import net.gammas.magicas.slot.SlotEssenceExtractor;
-import net.gammas.magicas.slot.SlotEssenceExtractorBottle;
+import net.gammas.magicas.slot.SlotEssenceExtractorChisel;
+import net.gammas.magicas.slot.SlotEssenceExtractorHammer;
 import net.gammas.magicas.tileentites.TileEntityEssenceExtractor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -24,9 +25,10 @@ public class ContainerEssenceExtractor extends Container {
 		
 		essenceExtractor = teEssenceExtractor;
 		
-		this.addSlotToContainer(new Slot ((IInventory)teEssenceExtractor, 0, 66, 24));
-		this.addSlotToContainer(new SlotEssenceExtractorBottle (invPlayer.player, teEssenceExtractor, 1, 66, 44));
-		this.addSlotToContainer(new SlotEssenceExtractor(invPlayer.player, teEssenceExtractor, 2, 124, 35));
+		this.addSlotToContainer(new SlotEssenceExtractorHammer (invPlayer.player, teEssenceExtractor, 0, 26, 24));
+		this.addSlotToContainer(new SlotEssenceExtractorChisel (invPlayer.player, teEssenceExtractor, 1, 26, 44));
+		this.addSlotToContainer(new Slot ((IInventory)teEssenceExtractor, 2, 66, 34));
+		this.addSlotToContainer(new SlotEssenceExtractor(invPlayer.player, teEssenceExtractor, 3, 124, 35));
 
 		for(int i = 0; i < 3; i++){
 			for(int j = 0; j < 9; j++){
@@ -56,17 +58,17 @@ public class ContainerEssenceExtractor extends Container {
 	
 	
 	
-	public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int p_82846_2_)
+	public ItemStack transferStackInSlot(EntityPlayer player, int slotNumber)
     {
         ItemStack itemstack = null;
-        Slot slot = (Slot)this.inventorySlots.get(p_82846_2_);
+        Slot slot = (Slot)this.inventorySlots.get(slotNumber);
 
         if (slot != null && slot.getHasStack())
         {
             ItemStack itemstack1 = slot.getStack();
             itemstack = itemstack1.copy();
 
-            if (p_82846_2_ == 2)
+            if (slotNumber == 3)
             {
                 if (!this.mergeItemStack(itemstack1, 3, 39, true))
                 {
@@ -75,7 +77,7 @@ public class ContainerEssenceExtractor extends Container {
 
                 slot.onSlotChange(itemstack1, itemstack);
             }
-            else if (p_82846_2_ != 1 && p_82846_2_ != 0)
+            else if (slotNumber != 1 && slotNumber != 0)
             {
                 if (essenceExtractor.isItemEssence(itemstack1))
                 {
@@ -91,14 +93,14 @@ public class ContainerEssenceExtractor extends Container {
                         return null;
                     }
                 }
-                else if (p_82846_2_ >= 3 && p_82846_2_ < 30)
+                else if (slotNumber >= 3 && slotNumber < 30)
                 {
                     if (!this.mergeItemStack(itemstack1, 30, 39, false))
                     {
                         return null;
                     }
                 }
-                else if (p_82846_2_ >= 30 && p_82846_2_ < 39 && !this.mergeItemStack(itemstack1, 3, 30, false))
+                else if (slotNumber >= 30 && slotNumber < 39 && !this.mergeItemStack(itemstack1, 3, 30, false))
                 {
                     return null;
                 }
@@ -122,7 +124,7 @@ public class ContainerEssenceExtractor extends Container {
                 return null;
             }
 
-            slot.onPickupFromSlot(p_82846_1_, itemstack1);
+            slot.onPickupFromSlot(player, itemstack1);
         }
 
         return itemstack;

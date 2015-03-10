@@ -24,6 +24,7 @@ public class BlockWaterEssenceOre extends Block
     public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
     {
         return MagicasItems.waterEssenceChunk;
+    }
     
     
     public void dropBlockAsItemWithChance(World p_149690_1_, int p_149690_2_, int p_149690_3_, int p_149690_4_, int p_149690_5_, float p_149690_6_, int p_149690_7_)

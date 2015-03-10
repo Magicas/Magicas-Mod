@@ -25,6 +25,7 @@ public class TileEntityEssenceExtractorRenderer extends TileEntitySpecialRendere
 	private final ModelEssenceExtractor model;
 	private EntityItem entItem = null;
 	private EntityItem entItem2 = null;
+	private EntityItem entItem3 = null;
 
 	public TileEntityEssenceExtractorRenderer()
 	{
@@ -54,6 +55,7 @@ public class TileEntityEssenceExtractorRenderer extends TileEntitySpecialRendere
 
 		int slot = 0;
 		int slot2 = 1;
+		int slot3 = 2;
 		TileEntityEssenceExtractor tileEntity = (TileEntityEssenceExtractor) te;
 		if (tileEntity.getStackInSlot(slot) != null)
 		{
@@ -64,8 +66,8 @@ public class TileEntityEssenceExtractorRenderer extends TileEntitySpecialRendere
 			entItem.hoverStart = 0.0F;
 			RenderItem.renderInFrame = true;
 			GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
-			GL11.glRotatef(180, 0, 1, 1);
-			RenderManager.instance.renderEntityWithPosYaw(entItem, 0, -.20, -.55, 0, 0);
+			GL11.glRotatef(180, 0, 1, 0);
+			RenderManager.instance.renderEntityWithPosYaw(entItem, 0, -1.1, -.20, 0, 0);
 			RenderItem.renderInFrame = false;
 			GL11.glPopMatrix();
 
@@ -80,8 +82,23 @@ public class TileEntityEssenceExtractorRenderer extends TileEntitySpecialRendere
 			entItem.hoverStart = 0.0F;
 			RenderItem.renderInFrame = true;
 			GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
-			GL11.glRotatef(180, 0, 1, 0);
-			RenderManager.instance.renderEntityWithPosYaw(entItem, 0, -1, .05, 0, 0);
+			GL11.glRotatef(0, 0, 1, 0);
+			RenderManager.instance.renderEntityWithPosYaw(entItem, 0, -1.14, -.20, 0, 0);
+			RenderItem.renderInFrame = false;
+			GL11.glPopMatrix();
+		}
+		
+		if (tileEntity.getStackInSlot(slot3) != null)
+		{
+			if ((entItem == null) || entItem.getEntityItem().getItem() != tileEntity.getStackInSlot(slot3).getItem())
+				entItem = new EntityItem(tileEntity.getWorldObj(), x, y, z, new ItemStack(tileEntity.getStackInSlot(slot3).getItem(), 1));
+
+			GL11.glPushMatrix();
+			entItem.hoverStart = 0.0F;
+			RenderItem.renderInFrame = true;
+			GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
+			GL11.glRotatef(180, 0, 1, 1);
+			RenderManager.instance.renderEntityWithPosYaw(entItem, 0, -.20, -.48, 0, 0);
 			RenderItem.renderInFrame = false;
 			GL11.glPopMatrix();
 

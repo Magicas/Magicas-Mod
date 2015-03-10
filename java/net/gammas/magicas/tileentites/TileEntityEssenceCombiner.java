@@ -170,36 +170,36 @@ public class TileEntityEssenceCombiner extends TileEntity implements ISidedInven
 
 	private static int isItemStackEssence(ItemStack is)
 	{
-		if (is == null)
-		{
-			return 0;
-		} else
-		{
-			Item item = is.getItem();
-
-			if (item == MagicasItems.fireEssence)
-			{
-				return 1;
-			}
-
-			if (item == MagicasItems.waterEssence)
-			{
-				return 1;
-			}
-
-			if (item == MagicasItems.earthEssence)
-			{
-				return 1;
-			}
-
-			if (item == MagicasItems.airEssence)
-			{
-				return 1;
-			}
+//		if (is == null)
+//		{
+//			return 0;
+//		} else
+//		{
+//			Item item = is.getItem();
+//
+//			if (item == MagicasItems.fireEssence)
+//			{
+//				return 1;
+//			}
+//
+//			if (item == MagicasItems.waterEssence)
+//			{
+//				return 1;
+//			}
+//
+//			if (item == MagicasItems.earthEssence)
+//			{
+//				return 1;
+//			}
+//
+//			if (item == MagicasItems.airEssence)
+//			{
+//				return 1;
+//			}
 
 			return 0;
 		}
-	}
+//	}
 
 	public void readFromNBT(NBTTagCompound nbt)
 	{

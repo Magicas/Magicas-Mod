@@ -14,49 +14,49 @@ public class EssenceSplitterRecipes
 		
 	}
 	
-	public static ItemStack getOutput1(Item item) 
-	{
-		if (item == MagicasItems.steamEssence)
-		{
-			return new ItemStack(MagicasItems.fireEssence, 1);
-		}
-		
-		if (item == MagicasItems.lavaEssence)
-		{
-			return new ItemStack(MagicasItems.fireEssence, 1);
-		}
-		
-		return null;
-	}
-	
-	public static ItemStack getOutput2(Item item)
-	{
-		if (item == MagicasItems.steamEssence)
-		{
-			return new ItemStack(MagicasItems.waterEssence, 1);
-		}
-
-		if (item == MagicasItems.lavaEssence)
-		{
-			return new ItemStack(MagicasItems.earthEssence, 1);
-		}
-		
-		return null;
-	}
-	
-	public static ItemStack getOutput3(Item item, Item item2)
-	{
-		if (item == MagicasItems.steamEssence)
-		{
-			return null;
-		}
-
-		if (item == MagicasItems.lavaEssence)
-		{
-			return null;
-		}
-		
-		return null;
-	}
-	
+//	public static ItemStack getOutput1(Item item) 
+//	{
+//		if (item == MagicasItems.steamEssence)
+//		{
+//			return new ItemStack(MagicasItems.fireEssence, 1);
+//		}
+//		
+//		if (item == MagicasItems.lavaEssence)
+//		{
+//			return new ItemStack(MagicasItems.fireEssence, 1);
+//		}
+//		
+//		return null;
+//	}
+//	
+//	public static ItemStack getOutput2(Item item)
+//	{
+//		if (item == MagicasItems.steamEssence)
+//		{
+//			return new ItemStack(MagicasItems.waterEssence, 1);
+//		}
+//
+//		if (item == MagicasItems.lavaEssence)
+//		{
+//			return new ItemStack(MagicasItems.earthEssence, 1);
+//		}
+//		
+//		return null;
+//	}
+//	
+//	public static ItemStack getOutput3(Item item, Item item2)
+//	{
+//		if (item == MagicasItems.steamEssence)
+//		{
+//			return null;
+//		}
+//
+//		if (item == MagicasItems.lavaEssence)
+//		{
+//			return null;
+//		}
+//		
+//		return null;
+//	}
+//	
 }

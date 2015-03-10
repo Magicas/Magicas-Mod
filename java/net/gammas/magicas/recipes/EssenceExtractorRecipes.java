@@ -14,45 +14,58 @@ public class EssenceExtractorRecipes
 		
 	}
 	
-	public static ItemStack getRecipe(Item item, Item item2) 
+	public static ItemStack getRecipe(Item item, Item item2, Item item3) 
 	{
-		return getOutput(item, item2);
+		return getOutput(item, item2, item3);
 	}
 	
-	public static ItemStack getOutput(Item item, Item item2)
+	public static ItemStack getOutput(Item item, Item item2, Item item3)
 	{
-		//Recipe: EXAMPLE
-		if(item == MagicasItems.fireEssence && item2 == Items.glass_bottle ) 
-		{
-			return new ItemStack(MagicasItems.bottleOfFireEssence, 1);	
-		}
 		
-		if(item == MagicasItems.waterEssence && item2 == Items.glass_bottle ) 
+		if (isHammer(item) && isChisel(item2))
 		{
-			return new ItemStack(MagicasItems.bottleOfWaterEssence, 1);	
-		}
-		
-		if(item == MagicasItems.earthEssence && item2 == Items.glass_bottle ) 
-		{
-			return new ItemStack(MagicasItems.bottleOfEarthEssence, 1);	
-		}
-		
-		if(item == MagicasItems.airEssence && item2 == Items.glass_bottle ) 
-		{
-			return new ItemStack(MagicasItems.bottleOfAirEssence, 1);	
-		}
-		
-		if (item == MagicasItems.steamEssence && item2 == Items.glass_bottle)
-		{
-			return new ItemStack(MagicasItems.bottleOfSteamEssence, 1);
-		}
-		
-		if (item == MagicasItems.lavaEssence && item2 == Items.glass_bottle)
-		{
-			return new ItemStack(MagicasItems.bottleOfLavaEssence, 1);
+			if (item3 == MagicasItems.fireEssenceChunk)
+			{
+				return new ItemStack(MagicasItems.fireEssenceShard, 1);
+			}
+			
+			if (item3 == MagicasItems.waterEssenceChunk)
+			{
+				return new ItemStack(MagicasItems.waterEssenceShard, 1);
+			}
+			
+			if (item3 == MagicasItems.earthEssenceChunk)
+			{
+				return new ItemStack(MagicasItems.earthEssenceShard, 1);
+			}
+			
+			if (item3 == MagicasItems.airEssenceChunk)
+			{
+				return new ItemStack(MagicasItems.airEssenceShard, 1);
+			}
+			
+			return null;
 		}
 		
 		return null;
+	}
+	
+	public static boolean isHammer(Item item)
+	{
+	
+		if (item == MagicasItems.stoneHammer) return true;
+		
+		return false;
+		
+	}
+	
+	public static boolean isChisel(Item item)
+	{
+		
+		if (item == MagicasItems.stoneChisel) return true;
+		
+		return false;
+		
 	}
 	
 }

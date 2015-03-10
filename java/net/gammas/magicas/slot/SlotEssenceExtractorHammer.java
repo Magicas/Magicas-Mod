@@ -1,15 +1,16 @@
 package net.gammas.magicas.slot;
 
+import net.gammas.magicas.items.MagicasItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.SlotFurnace;
 import net.minecraft.item.ItemStack;
 
-public class SlotEssenceExtractorBottle extends SlotFurnace
+public class SlotEssenceExtractorHammer extends SlotFurnace
 {
 
-	public SlotEssenceExtractorBottle(EntityPlayer player, IInventory inv, int i, int j, int k)
+	public SlotEssenceExtractorHammer(EntityPlayer player, IInventory inv, int i, int j, int k)
 	{
 		super(player, inv, i, j, k);
 	}
@@ -17,7 +18,7 @@ public class SlotEssenceExtractorBottle extends SlotFurnace
 	@Override
 	public boolean isItemValid(ItemStack is)
 	{
-		return is.getItem() == Items.glass_bottle;
+		return is.getItem() == MagicasItems.stoneHammer;
 	}
 
 }

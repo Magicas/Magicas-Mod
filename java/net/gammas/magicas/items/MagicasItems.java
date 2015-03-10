@@ -13,6 +13,10 @@ public class MagicasItems
 	public static Item magicWandGreen;
 	public static Item magicWandOrange;
 	
+	// Tools
+	public static Item stoneHammer;
+	public static Item stoneChisel;
+	
 	// Essence
 	
 	// Chunks
@@ -49,6 +53,11 @@ public class MagicasItems
 		magicWandGreen = new ItemMagicWand(3).setUnlocalizedName("MagicWandGreen").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:MagicWandGreen");
 		magicWandOrange = new ItemMagicWand(5).setUnlocalizedName("MagicWandOrange").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:MagicWandOrange");
 		
+		
+		// Tools
+		stoneHammer = new ItemHammer(25).setUnlocalizedName("StoneHammer").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:StoneHammer");
+		stoneChisel = new ItemChisel(13).setUnlocalizedName("StoneChisel").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:StoneChisel");
+		
 		// Essence
 		
 		// Chunks
@@ -83,5 +92,7 @@ public class MagicasItems
 		GameRegistry.registerItem(airEssenceChunk, airEssenceChunk.getUnlocalizedName());
 		GameRegistry.registerItem(steamEssence, steamEssence.getUnlocalizedName());
 		GameRegistry.registerItem(lavaEssence, lavaEssence.getUnlocalizedName());
+		GameRegistry.registerItem(stoneHammer, stoneHammer.getUnlocalizedName());
+		GameRegistry.registerItem(stoneChisel, stoneChisel.getUnlocalizedName());
 	}
 }

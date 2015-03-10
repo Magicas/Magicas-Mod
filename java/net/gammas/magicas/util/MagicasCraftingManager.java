@@ -1,6 +1,7 @@
 package net.gammas.magicas.util;
 
 import net.gammas.magicas.blocks.MagicasBlocks;
+import net.gammas.magicas.items.MagicasItems;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -20,6 +21,8 @@ public class MagicasCraftingManager
 		// Shaped
 		GameRegistry.addRecipe(new ItemStack(MagicasBlocks.EssenceExtractorIdle, 1), new Object[] { "III", "ICI", "WWW", 'I', Items.iron_ingot, 'W', Blocks.planks, 'C', Items.quartz });
 		GameRegistry.addRecipe(new ItemStack(MagicasBlocks.EssenceCombinerIdle, 1), new Object[] { "GGG", "GCG", "WWW", 'G', Items.gold_ingot, 'W', Blocks.planks, 'C', Items.quartz });
+		GameRegistry.addRecipe(new ItemStack(MagicasItems.stoneHammer, 1), new Object[] { "CCC", "CCC", " S ", 'C', Blocks.cobblestone, 'S', Items.stick});
+		GameRegistry.addRecipe(new ItemStack(MagicasItems.stoneChisel, 1), new Object[] { "  C", " C ", "S  ", 'C', Blocks.cobblestone, 'S', Items.stick});
 		
 		
 		// Shapeless

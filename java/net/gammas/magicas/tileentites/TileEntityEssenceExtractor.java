@@ -1,13 +1,12 @@
 package net.gammas.magicas.tileentites;
 
-import net.gammas.magicas.blocks.EssenceExtractor;
+import java.util.Random;
+
 import net.gammas.magicas.items.MagicasItems;
 import net.gammas.magicas.recipes.EssenceExtractorRecipes;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.ISidedInventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -24,17 +23,17 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 	public boolean isExtracting;
 
 	public int cooktime;
-	public static final int extractingSpeed = 100;
+	public static final int extractingSpeed = 40;
 	private static final int[] slots_top = new int[]
-	{ 0 };
-	private static final int[] slots_bottom = new int[]
 	{ 2 };
+	private static final int[] slots_bottom = new int[]
+	{ 3 };
 	private static final int[] slots_side = new int[]
-	{ 1 };
+	{ 0, 1 };
 
 	public TileEntityEssenceExtractor()
 	{
-		slots = new ItemStack[3];
+		slots = new ItemStack[4];
 	}
 
 	@Override
@@ -147,19 +146,18 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 	{
 		if (slot == 0)
 		{
-			if (isItemEssence(is))
+			if (is.getItem() == MagicasItems.stoneHammer)
 			{
 				return true;
 			}
-		}
-		else if (slot == 1)
+		} else if (slot == 1)
 		{
-			if (is.getItem() == Items.glass_bottle)
+			if (is.getItem() == MagicasItems.stoneChisel)
 			{
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
 
@@ -170,37 +168,38 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 
 	private static int isItemStackEssence(ItemStack is)
 	{
-		if (is == null)
-		{
-			return 0;
-		} 
-		else
-		{
-			Item item = is.getItem();
+		// if (is == null)
+		// {
+		// return 0;
+		// }
+		// else
+		// {
+		// Item item = is.getItem();
+		//
+		// if (item == MagicasItems.fireEssence)
+		// {
+		// return 1;
+		// }
+		//
+		// if (item == MagicasItems.waterEssence)
+		// {
+		// return 1;
+		// }
+		//
+		// if (item == MagicasItems.earthEssence)
+		// {
+		// return 1;
+		// }
+		//
+		// if (item == MagicasItems.airEssence)
+		// {
+		// return 1;
+		// }
 
-			if (item == MagicasItems.fireEssence)
-			{
-				return 1;
-			}
-
-			if (item == MagicasItems.waterEssence)
-			{
-				return 1;
-			}
-
-			if (item == MagicasItems.earthEssence)
-			{
-				return 1;
-			}
-
-			if (item == MagicasItems.airEssence)
-			{
-				return 1;
-			}
-
-			return 0;
-		}
+		return 0;
 	}
+
+	// }
 
 	public void readFromNBT(NBTTagCompound nbt)
 	{
@@ -267,35 +266,34 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 	private boolean canExtract()
 	{
 
-		if (slots[0] == null || slots[1] == null)
+		if (slots[0] == null || slots[1] == null || slots[2] == null)
 		{
 			return false;
 		}
 
-		ItemStack itemstack = EssenceExtractorRecipes.getRecipe(slots[0].getItem(), slots[1].getItem());
+		ItemStack itemstack = EssenceExtractorRecipes.getRecipe(slots[0].getItem(), slots[1].getItem(), slots[2].getItem());
 
 		if (itemstack == null)
 		{
 			return false;
 		}
-		
-		if (slots[2] == null)
+
+		if (slots[3] == null)
 		{
 			return true;
 		}
-		
-		if (!slots[2].isItemEqual(itemstack))
+
+		if (!slots[3].isItemEqual(itemstack))
 		{
 			return false;
 		}
-		
-		if (slots[2].stackSize < getInventoryStackLimit() && slots[2].stackSize < slots[2].getMaxStackSize())
+
+		if (slots[3].stackSize < getInventoryStackLimit() && slots[3].stackSize < slots[3].getMaxStackSize())
 		{
 			return true;
-		} 
-		else
+		} else
 		{
-			return slots[2].stackSize < itemstack.getMaxStackSize();
+			return slots[3].stackSize < itemstack.getMaxStackSize();
 		}
 	}
 
@@ -303,18 +301,17 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 	{
 		if (canExtract())
 		{
-			ItemStack itemstack = EssenceExtractorRecipes.getRecipe(slots[0].getItem(), slots[1].getItem());
+			ItemStack itemstack = EssenceExtractorRecipes.getRecipe(slots[0].getItem(), slots[1].getItem(), slots[2].getItem());
 
-			if (slots[2] == null)
+			if (slots[3] == null)
 			{
-				slots[2] = itemstack.copy();
-			} 
-			else if (slots[2].isItemEqual(itemstack))
+				slots[3] = itemstack.copy();
+			} else if (slots[3].isItemEqual(itemstack))
 			{
-				slots[2].stackSize += itemstack.stackSize;
+				slots[3].stackSize += itemstack.stackSize;
 			}
 
-			for (int i = 0; i < 2; i++)
+			for (int i = 0; i < 3; i++)
 			{
 				if (slots[i].stackSize <= 0)
 				{
@@ -322,7 +319,10 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 				} 
 				else
 				{
-					slots[i].stackSize--;
+					if (i == 2)
+					{
+						slots[i].stackSize--;
+					}
 				}
 				
 				if (slots[i].stackSize <= 0)
@@ -335,10 +335,12 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 
 	}
 
+	private Random random;
+	
 	public void updateEntity()
 	{
 		boolean flag1 = false;
-		
+
 		if (canExtract())
 		{
 			cooktime++;
@@ -347,12 +349,28 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 			if (this.cooktime == this.extractingSpeed)
 			{
 				this.cooktime = 0;
+				if (slots[0].getItemDamage() == slots[0].getMaxDamage())
+				{
+					slots[0] = null;
+				}
+				else
+				{
+					slots[0].attemptDamageItem(1, random);
+				}
+
+				if (slots[1].getItemDamage() == slots[1].getMaxDamage())
+				{
+					slots[1] = null;
+				}
+				else
+				{
+					slots[1].attemptDamageItem(1, random);
+				}
 				this.extract();
 				isExtracting = false;
 				flag1 = true;
 			}
-		} 
-		else
+		} else
 		{
 			cooktime = 0;
 		}
