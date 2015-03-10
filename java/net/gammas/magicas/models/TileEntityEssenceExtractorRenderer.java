@@ -26,6 +26,8 @@ public class TileEntityEssenceExtractorRenderer extends TileEntitySpecialRendere
 	private EntityItem entItem = null;
 	private EntityItem entItem2 = null;
 	private EntityItem entItem3 = null;
+	
+	public static TileEntityEssenceExtractorRenderer instance;
 
 	public TileEntityEssenceExtractorRenderer()
 	{
