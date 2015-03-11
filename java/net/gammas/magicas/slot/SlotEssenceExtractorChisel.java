@@ -5,6 +5,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.SlotFurnace;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class SlotEssenceExtractorChisel extends SlotFurnace
@@ -18,7 +19,18 @@ public class SlotEssenceExtractorChisel extends SlotFurnace
 	@Override
 	public boolean isItemValid(ItemStack is)
 	{
-		return is.getItem() == MagicasItems.stoneChisel;
+		return isChisel(is.getItem());
+	}
+	
+	public static boolean isChisel(Item item)
+	{
+		
+		if (item == MagicasItems.stoneChisel) return true;
+		if (item == MagicasItems.ironChisel) return true;
+		if (item == MagicasItems.diamondChisel) return true;
+		
+		return false;
+		
 	}
 
 }

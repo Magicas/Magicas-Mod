@@ -54,6 +54,8 @@ public class EssenceExtractorRecipes
 	{
 	
 		if (item == MagicasItems.stoneHammer) return true;
+		if (item == MagicasItems.ironHammer) return true;
+		if (item == MagicasItems.diamondHammer) return true;
 		
 		return false;
 		
@@ -63,6 +65,8 @@ public class EssenceExtractorRecipes
 	{
 		
 		if (item == MagicasItems.stoneChisel) return true;
+		if (item == MagicasItems.ironChisel) return true;
+		if (item == MagicasItems.diamondChisel) return true;
 		
 		return false;
 		

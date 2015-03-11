@@ -1,5 +1,6 @@
 package net.gammas.magicas.container;
 
+import net.gammas.magicas.items.MagicasItems;
 import net.gammas.magicas.slot.SlotEssenceExtractor;
 import net.gammas.magicas.slot.SlotEssenceExtractorChisel;
 import net.gammas.magicas.slot.SlotEssenceExtractorHammer;
@@ -11,159 +12,221 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ContainerEssenceExtractor extends Container {
+public class ContainerEssenceExtractor extends Container
+{
 
 	private TileEntityEssenceExtractor essenceExtractor;
 	private int dualCookTime;
-	
-	public ContainerEssenceExtractor(InventoryPlayer invPlayer, TileEntityEssenceExtractor teEssenceExtractor){
-		dualCookTime = 0;
-		
-		essenceExtractor = teEssenceExtractor;
-		
-		this.addSlotToContainer(new SlotEssenceExtractorHammer (invPlayer.player, teEssenceExtractor, 0, 26, 24));
-		this.addSlotToContainer(new SlotEssenceExtractorChisel (invPlayer.player, teEssenceExtractor, 1, 26, 44));
-		this.addSlotToContainer(new Slot ((IInventory)teEssenceExtractor, 2, 66, 34));
-		this.addSlotToContainer(new SlotEssenceExtractor(invPlayer.player, teEssenceExtractor, 3, 124, 35));
 
-		for(int i = 0; i < 3; i++){
-			for(int j = 0; j < 9; j++){
+	public static final int INPUT_1 = 0, INPUT_2 = 1, INPUT_3 = 2, OUTPUT = 3;
+
+	public ContainerEssenceExtractor(InventoryPlayer invPlayer, TileEntityEssenceExtractor teEssenceExtractor)
+	{
+		dualCookTime = 0;
+
+		essenceExtractor = teEssenceExtractor;
+
+		this.addSlotToContainer(new SlotEssenceExtractorHammer(invPlayer.player, teEssenceExtractor, INPUT_1, 26, 24));
+		this.addSlotToContainer(new SlotEssenceExtractorChisel(invPlayer.player, teEssenceExtractor, INPUT_2, 26, 44));
+		this.addSlotToContainer(new Slot((IInventory) teEssenceExtractor, INPUT_3, 66, 34));
+		this.addSlotToContainer(new SlotEssenceExtractor(invPlayer.player, teEssenceExtractor, OUTPUT, 124, 35));
+
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 9; j++)
+			{
 				this.addSlotToContainer(new Slot(invPlayer, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
 			}
 		}
-		for(int i = 0; i < 9; i++){
+		for (int i = 0; i < 9; i++)
+		{
 			this.addSlotToContainer(new Slot(invPlayer, i, 8 + i * 18, 142));
 		}
-		
+
 	}
-	
+
 	@Override
-	public boolean canInteractWith(EntityPlayer player) {
+	public boolean canInteractWith(EntityPlayer player)
+	{
 		return essenceExtractor.isUseableByPlayer(player);
 	}
 
-
-	
 	public void addCraftingToCrafters(ICrafting crafting)
-    {
-        super.addCraftingToCrafters(crafting);
-        crafting.sendProgressBarUpdate(this, 0, this.essenceExtractor.cooktime);
-    }
-	
+	{
+		super.addCraftingToCrafters(crafting);
+		crafting.sendProgressBarUpdate(this, 0, this.essenceExtractor.cooktime);
+	}
 
-	
-	
-	
-	public ItemStack transferStackInSlot(EntityPlayer player, int slotNumber)
-    {
-        ItemStack itemstack = null;
-        Slot slot = (Slot)this.inventorySlots.get(slotNumber);
+	/**
+	 * Called when a player shift-clicks on a slot. You must override this or
+	 * you will crash when someone does that.
+	 */
+	public ItemStack transferStackInSlot(EntityPlayer par1EntityPlayer, int par2)
+	{
+		ItemStack itemstack = null;
+		Slot slot = (Slot) this.inventorySlots.get(par2);
 
-        if (slot != null && slot.getHasStack())
-        {
-            ItemStack itemstack1 = slot.getStack();
-            itemstack = itemstack1.copy();
+		if (slot != null && slot.getHasStack())
+		{
+			ItemStack itemstack1 = slot.getStack();
+			itemstack = itemstack1.copy();
 
-            if (slotNumber == 3)
-            {
-                if (!this.mergeItemStack(itemstack1, 3, 39, true))
-                {
-                    return null;
-                }
+			// If itemstack is in Output stack
+			if (par2 == OUTPUT)
+			{
+				// try to place in player inventory / action bar; add 36+1
+				// because mergeItemStack uses < index,
+				// so the last slot in the inventory won't get checked if you
+				// don't add 1
+				if (!this.mergeItemStack(itemstack1, OUTPUT + 1, OUTPUT + 36 + 1, true))
+				{
+					return null;
+				}
 
-                slot.onSlotChange(itemstack1, itemstack);
-            }
-            else if (slotNumber != 1 && slotNumber != 0)
-            {
-                if (essenceExtractor.isItemEssence(itemstack1))
-                {
-                    if (!this.mergeItemStack(itemstack1, 0, 1, false))
-                    {
-                        return null;
-                    }
-                }
-                else if (itemstack.getItem() == Items.glass_bottle)
-                {
-                    if (!this.mergeItemStack(itemstack1, 1, 2, false))
-                    {
-                        return null;
-                    }
-                }
-                else if (slotNumber >= 3 && slotNumber < 30)
-                {
-                    if (!this.mergeItemStack(itemstack1, 30, 39, false))
-                    {
-                        return null;
-                    }
-                }
-                else if (slotNumber >= 30 && slotNumber < 39 && !this.mergeItemStack(itemstack1, 3, 30, false))
-                {
-                    return null;
-                }
-            }
-            else if (!this.mergeItemStack(itemstack1, 3, 39, false))
-            {
-                return null;
-            }
+				slot.onSlotChange(itemstack1, itemstack);
+			}
+			// itemstack is in player inventory, try to place in appropriate
+			// furnace slot
+			else if (par2 != INPUT_1 && par2 != INPUT_2 && par2 != INPUT_3)
+			{
+				// if it can be smelted, place in the input slots
+				if (isEssenceChunk(itemstack1.getItem()))
+				{
+					// try to place in either Input slot; add 1 to final input
+					// slot because mergeItemStack uses < index
+					if (!this.mergeItemStack(itemstack1, INPUT_3, INPUT_3 + 1, false))
+					{
+						return null;
+					}
+				}
+				// if it's an energy source, place in Fuel slot
+				else if (isHammer(itemstack1.getItem()))
+				{
+					if (!this.mergeItemStack(itemstack1, INPUT_1, INPUT_1 + 1, false))
+					{
+						return null;
+					}
+				}
+				else if (isChisel(itemstack1.getItem()))
+				{
+					if (!this.mergeItemStack(itemstack1, INPUT_2, INPUT_2 + 1, false))
+					{
+						return null;
+					}
+				}
+				// item in player's inventory, but not in action bar
+				else if (par2 >= OUTPUT + 1 && par2 < OUTPUT + 28)
+				{
+					// place in action bar
+					if (!this.mergeItemStack(itemstack1, OUTPUT + 28, OUTPUT + 37, false))
+					{
+						return null;
+					}
+				}
+				// item in action bar - place in player inventory
+				else if (par2 >= OUTPUT + 28 && par2 < OUTPUT + 37 && !this.mergeItemStack(itemstack1, OUTPUT + 1, OUTPUT + 28, false))
+				{
+					return null;
+				}
+			}
+			// In one of the infuser slots; try to place in player inventory /
+			// action bar
+			else if (!this.mergeItemStack(itemstack1, OUTPUT + 1, OUTPUT + 37, false))
+			{
+				return null;
+			}
 
-            if (itemstack1.stackSize == 0)
-            {
-                slot.putStack((ItemStack)null);
-            }
-            else
-            {
-                slot.onSlotChanged();
-            }
+			if (itemstack1.stackSize == 0)
+			{
+				slot.putStack((ItemStack) null);
+			} else
+			{
+				slot.onSlotChanged();
+			}
 
-            if (itemstack1.stackSize == itemstack.stackSize)
-            {
-                return null;
-            }
+			if (itemstack1.stackSize == itemstack.stackSize)
+			{
+				return null;
+			}
 
-            slot.onPickupFromSlot(player, itemstack1);
-        }
+			slot.onPickupFromSlot(par1EntityPlayer, itemstack1);
+		}
+		return itemstack;
+	}
 
-        return itemstack;
-    }
-	
-	 public void detectAndSendChanges()
-	    {
-	        super.detectAndSendChanges();
+	public void detectAndSendChanges()
+	{
+		super.detectAndSendChanges();
 
-	        for (int i = 0; i < this.crafters.size(); ++i)
-	        {
-	            ICrafting icrafting = (ICrafting)this.crafters.get(i);
+		for (int i = 0; i < this.crafters.size(); ++i)
+		{
+			ICrafting icrafting = (ICrafting) this.crafters.get(i);
 
-	            if (this.dualCookTime != this.essenceExtractor.cooktime)
-	            {
-	                icrafting.sendProgressBarUpdate(this, 0, this.essenceExtractor.cooktime);
-	            }
-	        }
-	        this.dualCookTime = this.essenceExtractor.cooktime;
+			if (this.dualCookTime != this.essenceExtractor.cooktime)
+			{
+				icrafting.sendProgressBarUpdate(this, 0, this.essenceExtractor.cooktime);
+			}
+		}
+		this.dualCookTime = this.essenceExtractor.cooktime;
 
-	    }
-	
-	 @SideOnly(Side.CLIENT)
-	    public void updateProgressBar(int i, int j)
-	    {
-	        if (i == 0)
-	        {
-	            this.essenceExtractor.cooktime = j;
-	        }
+	}
 
-	    }
+	@SideOnly(Side.CLIENT)
+	public void updateProgressBar(int i, int j)
+	{
+		if (i == 0)
+		{
+			this.essenceExtractor.cooktime = j;
+		}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	}
+
+	public static boolean isEssenceChunk(Item item)
+	{
+		if (item == MagicasItems.fireEssenceChunk)
+			return true;
+		if (item == MagicasItems.waterEssenceChunk)
+			return true;
+		if (item == MagicasItems.earthEssenceChunk)
+			return true;
+		if (item == MagicasItems.airEssenceChunk)
+			return true;
+
+		return false;
+	}
+
+	public static boolean isHammer(Item item)
+	{
+
+		if (item == MagicasItems.stoneHammer)
+			return true;
+		if (item == MagicasItems.ironHammer)
+			return true;
+		if (item == MagicasItems.diamondHammer)
+			return true;
+
+		return false;
+
+	}
+
+	public static boolean isChisel(Item item)
+	{
+
+		if (item == MagicasItems.stoneChisel)
+			return true;
+		if (item == MagicasItems.ironChisel)
+			return true;
+		if (item == MagicasItems.diamondChisel)
+			return true;
+
+		return false;
+
+	}
+
 }

@@ -16,6 +16,10 @@ public class MagicasItems
 	// Tools
 	public static Item stoneHammer;
 	public static Item stoneChisel;
+	public static Item ironHammer;
+	public static Item ironChisel;
+	public static Item diamondHammer;
+	public static Item diamondChisel;
 	
 	// Essence
 	
@@ -57,6 +61,10 @@ public class MagicasItems
 		// Tools
 		stoneHammer = new ItemHammer(25).setUnlocalizedName("StoneHammer").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:StoneHammer");
 		stoneChisel = new ItemChisel(13).setUnlocalizedName("StoneChisel").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:StoneChisel");
+		ironHammer = new ItemHammer(100).setUnlocalizedName("IronHammer").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:IronHammer");
+		ironChisel = new ItemChisel(52).setUnlocalizedName("IronChisel").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:IronChisel");
+		diamondHammer = new ItemHammer(2000).setUnlocalizedName("DiamondHammer").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:DiamondHammer");
+		diamondChisel = new ItemChisel(1040).setUnlocalizedName("DiamondChisel").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setTextureName("magicasmod:DiamondChisel");
 		
 		// Essence
 		
@@ -94,5 +102,9 @@ public class MagicasItems
 		GameRegistry.registerItem(lavaEssence, lavaEssence.getUnlocalizedName());
 		GameRegistry.registerItem(stoneHammer, stoneHammer.getUnlocalizedName());
 		GameRegistry.registerItem(stoneChisel, stoneChisel.getUnlocalizedName());
+		GameRegistry.registerItem(ironHammer, ironHammer.getUnlocalizedName());
+		GameRegistry.registerItem(ironChisel, ironChisel.getUnlocalizedName());
+		GameRegistry.registerItem(diamondHammer, diamondHammer.getUnlocalizedName());
+		GameRegistry.registerItem(diamondChisel, diamondChisel.getUnlocalizedName());
 	}
 }

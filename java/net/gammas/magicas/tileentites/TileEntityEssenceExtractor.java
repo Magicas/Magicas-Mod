@@ -2,6 +2,7 @@ package net.gammas.magicas.tileentites;
 
 import java.util.Random;
 
+import net.gammas.magicas.container.ContainerEssenceExtractor;
 import net.gammas.magicas.items.MagicasItems;
 import net.gammas.magicas.recipes.EssenceExtractorRecipes;
 import net.minecraft.entity.player.EntityPlayer;
@@ -146,13 +147,13 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 	{
 		if (slot == 0)
 		{
-			if (is.getItem() == MagicasItems.stoneHammer)
+			if (ContainerEssenceExtractor.isHammer(is.getItem()))
 			{
 				return true;
 			}
 		} else if (slot == 1)
 		{
-			if (is.getItem() == MagicasItems.stoneChisel)
+			if (ContainerEssenceExtractor.isChisel(is.getItem()))
 			{
 				return true;
 			}
@@ -160,46 +161,6 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 
 		return false;
 	}
-
-	public boolean isItemEssence(ItemStack is)
-	{
-		return isItemStackEssence(is) > 0;
-	}
-
-	private static int isItemStackEssence(ItemStack is)
-	{
-		// if (is == null)
-		// {
-		// return 0;
-		// }
-		// else
-		// {
-		// Item item = is.getItem();
-		//
-		// if (item == MagicasItems.fireEssence)
-		// {
-		// return 1;
-		// }
-		//
-		// if (item == MagicasItems.waterEssence)
-		// {
-		// return 1;
-		// }
-		//
-		// if (item == MagicasItems.earthEssence)
-		// {
-		// return 1;
-		// }
-		//
-		// if (item == MagicasItems.airEssence)
-		// {
-		// return 1;
-		// }
-
-		return 0;
-	}
-
-	// }
 
 	public void readFromNBT(NBTTagCompound nbt)
 	{
@@ -316,15 +277,14 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 				if (slots[i].stackSize <= 0)
 				{
 					slots[i] = new ItemStack(slots[i].getItem().setFull3D());
-				} 
-				else
+				} else
 				{
 					if (i == 2)
 					{
 						slots[i].stackSize--;
 					}
 				}
-				
+
 				if (slots[i].stackSize <= 0)
 				{
 					slots[i] = null;
@@ -336,7 +296,7 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 	}
 
 	private Random random;
-	
+
 	public void updateEntity()
 	{
 		boolean flag1 = false;
@@ -352,8 +312,7 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 				if (slots[0].getItemDamage() == slots[0].getMaxDamage())
 				{
 					slots[0] = null;
-				}
-				else
+				} else
 				{
 					slots[0].attemptDamageItem(1, random);
 				}
@@ -361,8 +320,7 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 				if (slots[1].getItemDamage() == slots[1].getMaxDamage())
 				{
 					slots[1] = null;
-				}
-				else
+				} else
 				{
 					slots[1].attemptDamageItem(1, random);
 				}

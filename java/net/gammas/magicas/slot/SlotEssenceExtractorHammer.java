@@ -5,6 +5,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.SlotFurnace;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class SlotEssenceExtractorHammer extends SlotFurnace
@@ -18,7 +19,18 @@ public class SlotEssenceExtractorHammer extends SlotFurnace
 	@Override
 	public boolean isItemValid(ItemStack is)
 	{
-		return is.getItem() == MagicasItems.stoneHammer;
+		return isHammer(is.getItem());
+	}
+	
+	public static boolean isHammer(Item item)
+	{
+	
+		if (item == MagicasItems.stoneHammer) return true;
+		if (item == MagicasItems.ironHammer) return true;
+		if (item == MagicasItems.diamondHammer) return true;
+		
+		return false;
+		
 	}
 
 }
