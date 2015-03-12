@@ -2,11 +2,14 @@ package net.gammas.magicas.util;
 
 import net.gammas.magicas.GUI.GUIEssenceCombiner;
 import net.gammas.magicas.GUI.GUIEssenceExtractor;
+import net.gammas.magicas.GUI.GUIEssenceInfuser;
 import net.gammas.magicas.blocks.MagicasBlocks;
 import net.gammas.magicas.container.ContainerEssenceCombiner;
 import net.gammas.magicas.container.ContainerEssenceExtractor;
+import net.gammas.magicas.container.ContainerEssenceInfuser;
 import net.gammas.magicas.tileentites.TileEntityEssenceCombiner;
 import net.gammas.magicas.tileentites.TileEntityEssenceExtractor;
+import net.gammas.magicas.tileentites.TileEntityEssenceInfuser;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
@@ -36,6 +39,12 @@ public class GUIHandler implements IGuiHandler
 					return new ContainerEssenceCombiner(player.inventory, (TileEntityEssenceCombiner) entity);
 				}
 				return null;
+			case MagicasBlocks.GuiIDEssenceInfuser:
+				if (entity instanceof TileEntityEssenceInfuser)
+				{
+					return new ContainerEssenceInfuser(player.inventory, (TileEntityEssenceInfuser) entity);
+				}
+				return null;
 			}
 		}
 		return null;
@@ -60,6 +69,12 @@ public class GUIHandler implements IGuiHandler
 				if (entity instanceof TileEntityEssenceCombiner)
 				{
 					return new GUIEssenceCombiner(player.inventory, (TileEntityEssenceCombiner) entity);
+				}
+				return null;
+			case MagicasBlocks.GuiIDEssenceInfuser:
+				if (entity instanceof TileEntityEssenceInfuser)
+				{
+					return new GUIEssenceInfuser(player.inventory, (TileEntityEssenceInfuser) entity);
 				}
 				return null;
 			}

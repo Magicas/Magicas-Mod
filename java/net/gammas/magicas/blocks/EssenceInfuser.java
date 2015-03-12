@@ -2,6 +2,7 @@ package net.gammas.magicas.blocks;
 
 import net.gammas.magicas.core.MagicasMod;
 import net.gammas.magicas.tileentites.TileEntityEssenceExtractor;
+import net.gammas.magicas.tileentites.TileEntityEssenceInfuser;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -15,7 +16,7 @@ import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class EssenceSplitter extends BlockContainer
+public class EssenceInfuser extends BlockContainer
 {
 	private boolean isActive;
 	
@@ -24,7 +25,7 @@ public class EssenceSplitter extends BlockContainer
 	 @SideOnly(Side.CLIENT)
 	 private IIcon bottom;
 	
-	public EssenceSplitter(boolean isActive) 
+	public EssenceInfuser(boolean isActive) 
 	{
 		super(Material.iron);
 		this.isActive = isActive;
@@ -57,16 +58,16 @@ public class EssenceSplitter extends BlockContainer
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister)
     {
-        this.blockIcon = iconRegister.registerIcon("magicasmod:EssenceSplitter_Side");;
-        this.top = iconRegister.registerIcon("magicasmod:" + (this.isActive ? "EssenceSplitter_Top_Active" : "EssenceSplitter_Top_Idle"));
-        this.bottom = iconRegister.registerIcon("magicasmod:EssenceSplitter_Bottom");
+        this.blockIcon = iconRegister.registerIcon("magicasmod:EssenceInfuser_Side");;
+        this.top = iconRegister.registerIcon("magicasmod:" + (this.isActive ? "EssenceInfuser_Top_Active" : "EssenceInfuser_Top_Idle"));
+        this.bottom = iconRegister.registerIcon("magicasmod:EssenceInfuser_Bottom");
     }
 	
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
 	{
 		if (!world.isRemote)
 		{
-			FMLNetworkHandler.openGui(player, MagicasMod.instance, MagicasBlocks.GuiIDEssenceSplitter, world, x, y, z);
+			FMLNetworkHandler.openGui(player, MagicasMod.instance, MagicasBlocks.GuiIDEssenceInfuser, world, x, y, z);
 		}
 		
 		return true;
@@ -78,11 +79,11 @@ public class EssenceSplitter extends BlockContainer
 	
 		if(isExtracting) 
 		{
-			worldObj.setBlock(xCoord, yCoord,zCoord, MagicasBlocks.EssenceSplitterIdle);
+			worldObj.setBlock(xCoord, yCoord,zCoord, MagicasBlocks.EssenceInfuserIdle);
 		}
 		else
 		{
-			worldObj.setBlock(xCoord, yCoord,zCoord, MagicasBlocks.EssenceSplitterActive);
+			worldObj.setBlock(xCoord, yCoord,zCoord, MagicasBlocks.EssenceInfuserActive);
 		}
 		worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, i, 2);
 	
@@ -96,7 +97,7 @@ public class EssenceSplitter extends BlockContainer
 	@Override
 	public TileEntity createNewTileEntity(World world, int p_149915_2_) 
 	{
-		return null; //new TileEntityEssenceSplitter();
+		return new TileEntityEssenceInfuser();
 	}
 
 }

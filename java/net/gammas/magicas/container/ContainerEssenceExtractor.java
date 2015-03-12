@@ -1,10 +1,12 @@
 package net.gammas.magicas.container;
 
 import net.gammas.magicas.items.MagicasItems;
+import net.gammas.magicas.slot.SlotEssenceCombiner;
 import net.gammas.magicas.slot.SlotEssenceExtractor;
 import net.gammas.magicas.slot.SlotEssenceExtractorChisel;
 import net.gammas.magicas.slot.SlotEssenceExtractorHammer;
 import net.gammas.magicas.tileentites.TileEntityEssenceExtractor;
+import net.gammas.magicas.util.ContainerHelp;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
@@ -36,6 +38,10 @@ public class ContainerEssenceExtractor extends Container
 		this.addSlotToContainer(new SlotEssenceExtractorChisel(invPlayer.player, teEssenceExtractor, INPUT_2, 26, 44));
 		this.addSlotToContainer(new Slot((IInventory) teEssenceExtractor, INPUT_3, 66, 34));
 		this.addSlotToContainer(new SlotEssenceExtractor(invPlayer.player, teEssenceExtractor, OUTPUT, 124, 35));
+		
+//		this.addSlotToContainer(new Slot ((IInventory)teEssenceCombiner, 0, 30, 35));
+//		this.addSlotToContainer(new Slot ((IInventory)teEssenceCombiner, 1, 68, 35));
+//		this.addSlotToContainer(new SlotEssenceCombiner(invPlayer.player, teEssenceCombiner, 2, 124, 35));
 
 		for (int i = 0; i < 3; i++)
 		{
@@ -96,7 +102,7 @@ public class ContainerEssenceExtractor extends Container
 			else if (par2 != INPUT_1 && par2 != INPUT_2 && par2 != INPUT_3)
 			{
 				// if it can be smelted, place in the input slots
-				if (isEssenceChunk(itemstack1.getItem()))
+				if (ContainerHelp.isEssenceChunk(itemstack1.getItem()))
 				{
 					// try to place in either Input slot; add 1 to final input
 					// slot because mergeItemStack uses < index
@@ -106,14 +112,14 @@ public class ContainerEssenceExtractor extends Container
 					}
 				}
 				// if it's an energy source, place in Fuel slot
-				else if (isHammer(itemstack1.getItem()))
+				else if (ContainerHelp.isHammer(itemstack1.getItem()))
 				{
 					if (!this.mergeItemStack(itemstack1, INPUT_1, INPUT_1 + 1, false))
 					{
 						return null;
 					}
 				}
-				else if (isChisel(itemstack1.getItem()))
+				else if (ContainerHelp.isChisel(itemstack1.getItem()))
 				{
 					if (!this.mergeItemStack(itemstack1, INPUT_2, INPUT_2 + 1, false))
 					{
@@ -186,47 +192,4 @@ public class ContainerEssenceExtractor extends Container
 		}
 
 	}
-
-	public static boolean isEssenceChunk(Item item)
-	{
-		if (item == MagicasItems.fireEssenceChunk)
-			return true;
-		if (item == MagicasItems.waterEssenceChunk)
-			return true;
-		if (item == MagicasItems.earthEssenceChunk)
-			return true;
-		if (item == MagicasItems.airEssenceChunk)
-			return true;
-
-		return false;
-	}
-
-	public static boolean isHammer(Item item)
-	{
-
-		if (item == MagicasItems.stoneHammer)
-			return true;
-		if (item == MagicasItems.ironHammer)
-			return true;
-		if (item == MagicasItems.diamondHammer)
-			return true;
-
-		return false;
-
-	}
-
-	public static boolean isChisel(Item item)
-	{
-
-		if (item == MagicasItems.stoneChisel)
-			return true;
-		if (item == MagicasItems.ironChisel)
-			return true;
-		if (item == MagicasItems.diamondChisel)
-			return true;
-
-		return false;
-
-	}
-
 }

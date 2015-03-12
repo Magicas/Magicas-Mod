@@ -5,6 +5,7 @@ import java.util.Random;
 import net.gammas.magicas.container.ContainerEssenceExtractor;
 import net.gammas.magicas.items.MagicasItems;
 import net.gammas.magicas.recipes.EssenceExtractorRecipes;
+import net.gammas.magicas.util.ContainerHelp;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.ISidedInventory;
@@ -24,7 +25,8 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 	public boolean isExtracting;
 
 	public int cooktime;
-	public static final int extractingSpeed = 40;
+	private static final int secondsToExtract = 3;
+	public static final int extractingSpeed = 20 * secondsToExtract;
 	private static final int[] slots_top = new int[]
 	{ 2 };
 	private static final int[] slots_bottom = new int[]
@@ -147,13 +149,13 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 	{
 		if (slot == 0)
 		{
-			if (ContainerEssenceExtractor.isHammer(is.getItem()))
+			if (ContainerHelp.isHammer(is.getItem()))
 			{
 				return true;
 			}
 		} else if (slot == 1)
 		{
-			if (ContainerEssenceExtractor.isChisel(is.getItem()))
+			if (ContainerHelp.isChisel(is.getItem()))
 			{
 				return true;
 			}

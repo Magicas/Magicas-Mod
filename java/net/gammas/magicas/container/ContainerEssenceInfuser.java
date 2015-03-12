@@ -1,43 +1,43 @@
 package net.gammas.magicas.container;
 
-import net.gammas.magicas.items.MagicasItems;
-import net.gammas.magicas.slot.SlotEssenceCombiner;
-import net.gammas.magicas.slot.SlotEssenceExtractor;
 import net.gammas.magicas.slot.SlotEssenceExtractorChisel;
 import net.gammas.magicas.slot.SlotEssenceExtractorHammer;
-import net.gammas.magicas.tileentites.TileEntityEssenceCombiner;
-import net.gammas.magicas.tileentites.TileEntityEssenceExtractor;
+import net.gammas.magicas.slot.SlotEssenceInfuser;
+import net.gammas.magicas.tileentites.TileEntityEssenceInfuser;
 import net.gammas.magicas.util.ContainerHelp;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.FurnaceRecipes;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ContainerEssenceCombiner extends Container
+public class ContainerEssenceInfuser extends Container
 {
 
-	private TileEntityEssenceCombiner essenceCombiner;
+	private TileEntityEssenceInfuser essenceInfuser;
 	private int dualCookTime;
 
-	public static final int INPUT_1 = 0, INPUT_2 = 1, OUTPUT = 2;
+	public static final int INPUT_1 = 0, INPUT_2 = 1, INPUT_3 = 2, INPUT_4 = 3, OUTPUT = 4;
 
-	public ContainerEssenceCombiner(InventoryPlayer invPlayer, TileEntityEssenceCombiner teEssenceCombiner)
+	public ContainerEssenceInfuser(InventoryPlayer invPlayer, TileEntityEssenceInfuser teEssenceInfuser)
 	{
 		dualCookTime = 0;
 
-		essenceCombiner = teEssenceCombiner;
+		essenceInfuser = teEssenceInfuser;
+
+		this.addSlotToContainer(new Slot((IInventory) teEssenceInfuser, INPUT_1, 80, 9));
+		this.addSlotToContainer(new Slot((IInventory) teEssenceInfuser, INPUT_2, 54, 35));
+		this.addSlotToContainer(new Slot((IInventory) teEssenceInfuser, INPUT_3, 80, 61));
+		this.addSlotToContainer(new Slot((IInventory) teEssenceInfuser, INPUT_4, 106, 35));
+		this.addSlotToContainer(new Slot((IInventory) teEssenceInfuser, OUTPUT, 80, 33));
 		
-		this.addSlotToContainer(new Slot ((IInventory)teEssenceCombiner, 0, 30, 35));
-		this.addSlotToContainer(new Slot ((IInventory)teEssenceCombiner, 1, 68, 35));
-		this.addSlotToContainer(new SlotEssenceCombiner(invPlayer.player, teEssenceCombiner, 2, 124, 35));
+//		this.addSlotToContainer(new Slot ((IInventory)teEssenceCombiner, 0, 30, 35));
+//		this.addSlotToContainer(new Slot ((IInventory)teEssenceCombiner, 1, 68, 35));
+//		this.addSlotToContainer(new SlotEssenceCombiner(invPlayer.player, teEssenceCombiner, 2, 124, 35));
 
 		for (int i = 0; i < 3; i++)
 		{
@@ -56,13 +56,13 @@ public class ContainerEssenceCombiner extends Container
 	@Override
 	public boolean canInteractWith(EntityPlayer player)
 	{
-		return essenceCombiner.isUseableByPlayer(player);
+		return essenceInfuser.isUseableByPlayer(player);
 	}
 
 	public void addCraftingToCrafters(ICrafting crafting)
 	{
 		super.addCraftingToCrafters(crafting);
-		crafting.sendProgressBarUpdate(this, 0, this.essenceCombiner.cooktime);
+		crafting.sendProgressBarUpdate(this, 0, this.essenceInfuser.cooktime);
 	}
 
 	/**
@@ -78,34 +78,23 @@ public class ContainerEssenceCombiner extends Container
 		{
 			ItemStack itemstack1 = slot.getStack();
 			itemstack = itemstack1.copy();
-
-			// If itemstack is in Output stack
-			if (par2 == OUTPUT)
-			{
-				// try to place in player inventory / action bar; add 36+1
-				// because mergeItemStack uses < index,
-				// so the last slot in the inventory won't get checked if you
-				// don't add 1
-				if (!this.mergeItemStack(itemstack1, OUTPUT + 1, OUTPUT + 36 + 1, true))
-				{
-					return null;
-				}
-
-				slot.onSlotChange(itemstack1, itemstack);
-			}
 			// itemstack is in player inventory, try to place in appropriate
 			// furnace slot
-			else if (par2 != INPUT_1 && par2 != INPUT_2)
+			if (par2 != INPUT_1 && par2 != INPUT_2 && par2 != INPUT_3 && par2 != INPUT_4 && par2 != OUTPUT)
 			{
 				// if it can be smelted, place in the input slots
 				if (ContainerHelp.isEssenceShard(itemstack1.getItem()))
 				{
 					// try to place in either Input slot; add 1 to final input
 					// slot because mergeItemStack uses < index
-					if (!this.mergeItemStack(itemstack1, INPUT_1, INPUT_2 + 1, false))
+					if (!this.mergeItemStack(itemstack1, INPUT_1, INPUT_4 + 1, false))
 					{
 						return null;
 					}
+				}
+				else if (ContainerHelp.isArmour(itemstack1.getItem()))
+				{
+					if (!this.mergeItemStack(itemstack1, OUTPUT, OUTPUT + 1, false));
 				}
 				// item in player's inventory, but not in action bar
 				else if (par2 >= OUTPUT + 1 && par2 < OUTPUT + 28)
@@ -155,12 +144,12 @@ public class ContainerEssenceCombiner extends Container
 		{
 			ICrafting icrafting = (ICrafting) this.crafters.get(i);
 
-			if (this.dualCookTime != this.essenceCombiner.cooktime)
+			if (this.dualCookTime != this.essenceInfuser.cooktime)
 			{
-				icrafting.sendProgressBarUpdate(this, 0, this.essenceCombiner.cooktime);
+				icrafting.sendProgressBarUpdate(this, 0, this.essenceInfuser.cooktime);
 			}
 		}
-		this.dualCookTime = this.essenceCombiner.cooktime;
+		this.dualCookTime = this.essenceInfuser.cooktime;
 
 	}
 
@@ -169,9 +158,8 @@ public class ContainerEssenceCombiner extends Container
 	{
 		if (i == 0)
 		{
-			this.essenceCombiner.cooktime = j;
+			this.essenceInfuser.cooktime = j;
 		}
 
 	}
-
 }

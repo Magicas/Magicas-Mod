@@ -2,10 +2,7 @@ package net.gammas.magicas.tileentites;
 
 import java.util.Random;
 
-import net.gammas.magicas.container.ContainerEssenceExtractor;
-import net.gammas.magicas.items.MagicasItems;
-import net.gammas.magicas.recipes.EssenceCombinerRecipes;
-import net.gammas.magicas.recipes.EssenceExtractorRecipes;
+import net.gammas.magicas.recipes.EssenceInfuserRecipes;
 import net.gammas.magicas.util.ContainerHelp;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -18,26 +15,26 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityEssenceCombiner extends TileEntity implements ISidedInventory
+public class TileEntityEssenceInfuser extends TileEntity implements ISidedInventory
 {
 
 	private ItemStack slots[];
 	private String customName;
-	public boolean isCombining;
+	public boolean isInfusing;
 
 	public int cooktime;
-	private static final int secondsToCombine = 5;
-	public static final int combiningSpeed = 20 * secondsToCombine;
+	private static final int secondsToInfuse = 3;
+	public static final int infusingSpeed = 20 * secondsToInfuse;
 	private static final int[] slots_top = new int[]
-	{ 0 };
+	{ 0, 1, 2, 3 };
 	private static final int[] slots_bottom = new int[]
-	{ 2 };
+	{ 4 };
 	private static final int[] slots_side = new int[]
-	{ 1 };
+	{ 4 };
 
-	public TileEntityEssenceCombiner()
+	public TileEntityEssenceInfuser()
 	{
-		slots = new ItemStack[3];
+		slots = new ItemStack[5];
 	}
 
 	@Override
@@ -70,7 +67,8 @@ public class TileEntityEssenceCombiner extends TileEntity implements ISidedInven
 				slots[var1] = null;
 			}
 			return is1;
-		} else
+		}
+		else
 		{
 			return null;
 		}
@@ -84,7 +82,8 @@ public class TileEntityEssenceCombiner extends TileEntity implements ISidedInven
 			ItemStack itemstack = slots[i];
 			slots[i] = null;
 			return itemstack;
-		} else
+		}
+		else
 		{
 			return null;
 		}
@@ -103,7 +102,7 @@ public class TileEntityEssenceCombiner extends TileEntity implements ISidedInven
 	@Override
 	public String getInventoryName()
 	{
-		return "container.essenceCombiner";
+		return "container.essenceInfuser";
 	}
 
 	@Override
@@ -129,7 +128,8 @@ public class TileEntityEssenceCombiner extends TileEntity implements ISidedInven
 		if (worldObj.getTileEntity(xCoord, yCoord, zCoord) != this)
 		{
 			return false;
-		} else
+		}
+		else
 		{
 			return player.getDistanceSq((double) xCoord + 0.5D, (double) yCoord + 0.5D, (double) zCoord + 0.5D) <= 64;
 		}
@@ -150,13 +150,14 @@ public class TileEntityEssenceCombiner extends TileEntity implements ISidedInven
 	{
 		if (slot == 0)
 		{
-			if (ContainerHelp.isEssenceShard(is.getItem()))
+			if (ContainerHelp.isHammer(is.getItem()))
 			{
 				return true;
 			}
-		} else if (slot == 1)
+		}
+		else if (slot == 1)
 		{
-			if (ContainerHelp.isEssenceShard(is.getItem()))
+			if (ContainerHelp.isChisel(is.getItem()))
 			{
 				return true;
 			}
@@ -224,63 +225,58 @@ public class TileEntityEssenceCombiner extends TileEntity implements ISidedInven
 
 	public int getExtractingProcessScaled(int i)
 	{
-		return (cooktime * i) / this.combiningSpeed;
+		return (cooktime * i) / this.infusingSpeed;
 	}
 
-	private boolean canExtract()
+	private boolean canInfuse()
 	{
 
-		if (slots[0] == null || slots[1] == null)
+		if (slots[0] == null || slots[1] == null || slots[2] == null || slots[3] == null || slots[4] == null)
 		{
 			return false;
 		}
 
-		ItemStack itemstack = EssenceCombinerRecipes.getRecipe(slots[0].getItem(), slots[1].getItem());
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = i + 1; j < 4; j++)
+			{
+
+				if (slots[i] != null && slots[j] != null)
+				{
+					if (slots[i].getItem() == slots[j].getItem())
+					{
+						return false;
+					}
+				}
+			}
+		}
+
+		ItemStack itemstack = EssenceInfuserRecipes.getRecipe(slots[0], slots[1], slots[2], slots[3], slots[4]);
 
 		if (itemstack == null)
 		{
 			return false;
 		}
 
-		if (slots[2] == null)
-		{
-			return true;
-		}
-
-		if (!slots[2].isItemEqual(itemstack))
-		{
-			return false;
-		}
-
-		if (slots[2].stackSize < getInventoryStackLimit() && slots[2].stackSize < slots[2].getMaxStackSize())
-		{
-			return true;
-		} else
-		{
-			return slots[2].stackSize < itemstack.getMaxStackSize();
-		}
+		return true;
 	}
 
-	public void extract()
+	public void infuse()
 	{
-		if (canExtract())
+		if (canInfuse())
 		{
-			ItemStack itemstack = EssenceCombinerRecipes.getRecipe(slots[0].getItem(), slots[1].getItem());
+			ItemStack itemstack = EssenceInfuserRecipes.getRecipe(slots[0], slots[1], slots[2], slots[3], slots[4]);
 
-			if (slots[2] == null)
-			{
-				slots[2] = itemstack.copy();
-			} else if (slots[2].isItemEqual(itemstack))
-			{
-				slots[2].stackSize += itemstack.stackSize;
-			}
+			slots[4] = null;
+			slots[4] = itemstack;
 
-			for (int i = 0; i < 2; i++)
+			for (int i = 0; i < 4; i++)
 			{
 				if (slots[i].stackSize <= 0)
 				{
 					slots[i] = new ItemStack(slots[i].getItem().setFull3D());
-				} else
+				}
+				else
 				{
 					slots[i].stackSize--;
 				}
@@ -301,19 +297,20 @@ public class TileEntityEssenceCombiner extends TileEntity implements ISidedInven
 	{
 		boolean flag1 = false;
 
-		if (canExtract())
+		if (canInfuse())
 		{
 			cooktime++;
-			isCombining = true;
+			isInfusing = true;
 
-			if (this.cooktime == this.combiningSpeed)
+			if (this.cooktime == this.infusingSpeed)
 			{
 				this.cooktime = 0;
-				this.extract();
-				isCombining = false;
+				this.infuse();
+				isInfusing = false;
 				flag1 = true;
 			}
-		} else
+		}
+		else
 		{
 			cooktime = 0;
 		}

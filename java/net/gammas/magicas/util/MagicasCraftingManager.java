@@ -23,10 +23,10 @@ public class MagicasCraftingManager
 		GameRegistry.addRecipe(new ItemStack(MagicasBlocks.EssenceCombinerIdle, 1), new Object[] { "GGG", "GCG", "WWW", 'G', Items.gold_ingot, 'W', Blocks.planks, 'C', Items.quartz });
 		GameRegistry.addRecipe(new ItemStack(MagicasItems.stoneHammer, 1), new Object[] { "CCC", "CCC", " S ", 'C', Blocks.cobblestone, 'S', Items.stick});
 		GameRegistry.addRecipe(new ItemStack(MagicasItems.stoneChisel, 1), new Object[] { "  C", " C ", "S  ", 'C', Blocks.cobblestone, 'S', Items.stick});
-		GameRegistry.addRecipe(new ItemStack(MagicasItems.stoneHammer, 1), new Object[] { "III", "III", " S ", 'I', Items.iron_ingot, 'S', Items.stick});
-		GameRegistry.addRecipe(new ItemStack(MagicasItems.stoneChisel, 1), new Object[] { "  I", " I ", "S  ", 'I', Items.iron_ingot, 'S', Items.stick});
-		GameRegistry.addRecipe(new ItemStack(MagicasItems.stoneHammer, 1), new Object[] { "DDD", "DDD", " S ", 'D', Items.diamond, 'S', Items.stick});
-		GameRegistry.addRecipe(new ItemStack(MagicasItems.stoneChisel, 1), new Object[] { "  D", " D ", "S  ", 'D', Items.diamond, 'S', Items.stick});
+		GameRegistry.addRecipe(new ItemStack(MagicasItems.ironHammer, 1), new Object[] { "III", "III", " S ", 'I', Items.iron_ingot, 'S', Items.stick});
+		GameRegistry.addRecipe(new ItemStack(MagicasItems.ironChisel, 1), new Object[] { "  I", " I ", "S  ", 'I', Items.iron_ingot, 'S', Items.stick});
+		GameRegistry.addRecipe(new ItemStack(MagicasItems.diamondHammer, 1), new Object[] { "DDD", "DDD", " S ", 'D', Items.diamond, 'S', Items.stick});
+		GameRegistry.addRecipe(new ItemStack(MagicasItems.diamondChisel, 1), new Object[] { "  D", " D ", "S  ", 'D', Items.diamond, 'S', Items.stick});
 		
 		
 		// Shapeless
