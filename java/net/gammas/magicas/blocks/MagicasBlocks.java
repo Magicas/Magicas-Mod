@@ -27,6 +27,9 @@ public class MagicasBlocks
 	public static Block EssenceCombinerActive;
 	public static Block EssenceInfuserIdle;
 	public static Block EssenceInfuserActive;
+	
+	// Trees
+	public static Block blockLog;
 
 	// GUI IDs
 	public static final int GuiIDEssenceExtractor = 0;

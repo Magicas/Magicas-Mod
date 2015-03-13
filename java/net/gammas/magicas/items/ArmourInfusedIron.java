@@ -228,7 +228,7 @@ public class ArmourInfusedIron extends ItemArmor implements ISpecialArmor
 				NBTTagCompound nbtTag = itemStack.stackTagCompound;
 				if (nbtTag.hasKey("AirInfused") && nbtTag.getBoolean("AirInfused"))
 				{
-					player.addMovementStat(2, 2, 2);
+					player.setAIMoveSpeed(1F);
 				}
 			}
 		}
