@@ -99,21 +99,28 @@ public class MagicasItems
 		airEssenceChunk = new ItemEssence().setUnlocalizedName("AirEssenceChunk").setCreativeTab(MagicasTab).setTextureName("magicasmod:AirEssenceChunk");
 
 		// Shards
+
+		// Level 1
 		fireEssenceShard = new ItemEssence().setUnlocalizedName("FireEssenceShard").setCreativeTab(MagicasTab).setTextureName("magicasmod:FireEssenceShard");
 		waterEssenceShard = new ItemEssence().setUnlocalizedName("WaterEssenceShard").setCreativeTab(MagicasTab).setTextureName("magicasmod:WaterEssenceShard");
 		earthEssenceShard = new ItemEssence().setUnlocalizedName("EarthEssenceShard").setCreativeTab(MagicasTab).setTextureName("magicasmod:EarthEssenceShard");
 		airEssenceShard = new ItemEssence().setUnlocalizedName("AirEssenceShard").setCreativeTab(MagicasTab).setTextureName("magicasmod:AirEssenceShard");
+
+		// Level 2
 		steamEssenceShard = new ItemEssence().setUnlocalizedName("SteamEssenceShard").setCreativeTab(MagicasTab).setTextureName("magicasmod:SteamEssenceShard");
 		lavaEssenceShard = new ItemEssence().setUnlocalizedName("LavaEssenceShard").setCreativeTab(MagicasTab).setTextureName("magicasmod:LavaEssenceShard");
+		dustEssenceShard = new ItemEssence().setUnlocalizedName("DustEssenceShard").setCreativeTab(MagicasTab).setTextureName("magicasmod:DustEssenceShard");
+		energyEssenceShard = new ItemEssence().setUnlocalizedName("EnergyEssenceShard").setCreativeTab(MagicasTab).setTextureName("magicasmod:EnergyEssenceShard");
+		rainEssenceShard = new ItemEssence().setUnlocalizedName("RainEssenceShard").setCreativeTab(MagicasTab).setTextureName("magicasmod:RainEssenceShard");
+		mudEssenceShard = new ItemEssence().setUnlocalizedName("MudEssenceShard").setCreativeTab(MagicasTab).setTextureName("magicasmod:MudEssenceShard");
+
+		// TODO LEVEL THESE ESSENCE SHARDS
 		lifeEssenceShard = new ItemEssence().setUnlocalizedName("LifeEssenceShard").setCreativeTab(MagicasTab).setTextureName("magicasmod:LifeEssenceShard");
 		deathEssenceShard = new ItemEssence().setUnlocalizedName("DeathEssenceShard").setCreativeTab(MagicasTab).setTextureName("magicasmod:DeathEssenceShard");
 	}
 
 	public static void RegisterItems()
 	{
-
-		// Game Registry
-
 		// Armour
 		Register(ironInfusedHelmet);
 		Register(ironInfusedChestplate);

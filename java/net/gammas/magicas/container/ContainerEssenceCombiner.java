@@ -34,9 +34,9 @@ public class ContainerEssenceCombiner extends Container
 		dualCookTime = 0;
 
 		essenceCombiner = teEssenceCombiner;
-		
-		this.addSlotToContainer(new Slot ((IInventory)teEssenceCombiner, 0, 30, 35));
-		this.addSlotToContainer(new Slot ((IInventory)teEssenceCombiner, 1, 68, 35));
+
+		this.addSlotToContainer(new Slot((IInventory) teEssenceCombiner, 0, 30, 35));
+		this.addSlotToContainer(new Slot((IInventory) teEssenceCombiner, 1, 68, 35));
 		this.addSlotToContainer(new SlotEssenceCombiner(invPlayer.player, teEssenceCombiner, 2, 124, 35));
 
 		for (int i = 0; i < 3; i++)
@@ -132,7 +132,8 @@ public class ContainerEssenceCombiner extends Container
 			if (itemstack1.stackSize == 0)
 			{
 				slot.putStack((ItemStack) null);
-			} else
+			}
+			else
 			{
 				slot.onSlotChanged();
 			}

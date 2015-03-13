@@ -70,7 +70,8 @@ public class TileEntityEssenceCombiner extends TileEntity implements ISidedInven
 				slots[var1] = null;
 			}
 			return is1;
-		} else
+		}
+		else
 		{
 			return null;
 		}
@@ -84,7 +85,8 @@ public class TileEntityEssenceCombiner extends TileEntity implements ISidedInven
 			ItemStack itemstack = slots[i];
 			slots[i] = null;
 			return itemstack;
-		} else
+		}
+		else
 		{
 			return null;
 		}
@@ -129,7 +131,8 @@ public class TileEntityEssenceCombiner extends TileEntity implements ISidedInven
 		if (worldObj.getTileEntity(xCoord, yCoord, zCoord) != this)
 		{
 			return false;
-		} else
+		}
+		else
 		{
 			return player.getDistanceSq((double) xCoord + 0.5D, (double) yCoord + 0.5D, (double) zCoord + 0.5D) <= 64;
 		}
@@ -154,7 +157,8 @@ public class TileEntityEssenceCombiner extends TileEntity implements ISidedInven
 			{
 				return true;
 			}
-		} else if (slot == 1)
+		}
+		else if (slot == 1)
 		{
 			if (ContainerHelp.isEssenceShard(is.getItem()))
 			{
@@ -255,7 +259,8 @@ public class TileEntityEssenceCombiner extends TileEntity implements ISidedInven
 		if (slots[2].stackSize < getInventoryStackLimit() && slots[2].stackSize < slots[2].getMaxStackSize())
 		{
 			return true;
-		} else
+		}
+		else
 		{
 			return slots[2].stackSize < itemstack.getMaxStackSize();
 		}
@@ -270,7 +275,8 @@ public class TileEntityEssenceCombiner extends TileEntity implements ISidedInven
 			if (slots[2] == null)
 			{
 				slots[2] = itemstack.copy();
-			} else if (slots[2].isItemEqual(itemstack))
+			}
+			else if (slots[2].isItemEqual(itemstack))
 			{
 				slots[2].stackSize += itemstack.stackSize;
 			}
@@ -280,7 +286,8 @@ public class TileEntityEssenceCombiner extends TileEntity implements ISidedInven
 				if (slots[i].stackSize <= 0)
 				{
 					slots[i] = new ItemStack(slots[i].getItem().setFull3D());
-				} else
+				}
+				else
 				{
 					slots[i].stackSize--;
 				}
@@ -313,7 +320,8 @@ public class TileEntityEssenceCombiner extends TileEntity implements ISidedInven
 				isCombining = false;
 				flag1 = true;
 			}
-		} else
+		}
+		else
 		{
 			cooktime = 0;
 		}

@@ -53,7 +53,7 @@ public class MagicasLeaf extends BlockLeaves
 	}
 
 	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister p_149651_1_)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		for (int i = 0; i < leafTypes.length; ++i)
 		{
@@ -61,21 +61,26 @@ public class MagicasLeaf extends BlockLeaves
 
 			for (int j = 0; j < leafTypes[i].length; ++j)
 			{
-				this.field_150129_M[i][j] = p_149651_1_.registerIcon(this.getTextureName() + "_" + leafTypes[i][j]);
+				this.field_150129_M[i][j] = iconRegister.registerIcon(this.getTextureName() + "_" + leafTypes[i][j]);
 			}
 		}
 	}
-	
+
 	@Override
-	public boolean isOpaqueCube(){
+	public boolean isOpaqueCube()
+	{
 		return false;
 	}
+
 	@Override
-	public boolean renderAsNormalBlock(){
+	public boolean renderAsNormalBlock()
+	{
 		return false;
 	}
+
 	@Override
-	public boolean shouldSideBeRendered(IBlockAccess iba, int x, int y, int z, int side){
+	public boolean shouldSideBeRendered(IBlockAccess iba, int x, int y, int z, int side)
+	{
 		return true;
 	}
 

@@ -21,15 +21,6 @@ public class EssenceInfuserRecipes
 		return getOutput(item.getItem(), item2.getItem(), item3.getItem(), item4.getItem(), item5.getItem());
 	}
 
-	// if (item3 == MagicasItems.fireEssenceChunk)
-	// {
-	// ItemStack newItem = new ItemStack(MagicasItems.ironInfusedHelmet, 1);
-	// newItem.stackTagCompound = new NBTTagCompound();
-	// newItem.stackTagCompound.setBoolean("FireInfused", true);
-	//
-	// return newItem;
-	// }
-
 	public static ItemStack getOutput(Item item, Item item2, Item item3, Item item4, Item item5)
 	{
 		if (item5 == Items.iron_helmet)

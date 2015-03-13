@@ -69,7 +69,8 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 				slots[var1] = null;
 			}
 			return is1;
-		} else
+		}
+		else
 		{
 			return null;
 		}
@@ -83,7 +84,8 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 			ItemStack itemstack = slots[i];
 			slots[i] = null;
 			return itemstack;
-		} else
+		}
+		else
 		{
 			return null;
 		}
@@ -128,7 +130,8 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 		if (worldObj.getTileEntity(xCoord, yCoord, zCoord) != this)
 		{
 			return false;
-		} else
+		}
+		else
 		{
 			return player.getDistanceSq((double) xCoord + 0.5D, (double) yCoord + 0.5D, (double) zCoord + 0.5D) <= 64;
 		}
@@ -153,7 +156,8 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 			{
 				return true;
 			}
-		} else if (slot == 1)
+		}
+		else if (slot == 1)
 		{
 			if (ContainerHelp.isChisel(is.getItem()))
 			{
@@ -254,7 +258,8 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 		if (slots[3].stackSize < getInventoryStackLimit() && slots[3].stackSize < slots[3].getMaxStackSize())
 		{
 			return true;
-		} else
+		}
+		else
 		{
 			return slots[3].stackSize < itemstack.getMaxStackSize();
 		}
@@ -269,7 +274,8 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 			if (slots[3] == null)
 			{
 				slots[3] = itemstack.copy();
-			} else if (slots[3].isItemEqual(itemstack))
+			}
+			else if (slots[3].isItemEqual(itemstack))
 			{
 				slots[3].stackSize += itemstack.stackSize;
 			}
@@ -279,7 +285,8 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 				if (slots[i].stackSize <= 0)
 				{
 					slots[i] = new ItemStack(slots[i].getItem().setFull3D());
-				} else
+				}
+				else
 				{
 					if (i == 2)
 					{
@@ -314,7 +321,8 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 				if (slots[0].getItemDamage() == slots[0].getMaxDamage())
 				{
 					slots[0] = null;
-				} else
+				}
+				else
 				{
 					slots[0].attemptDamageItem(1, random);
 				}
@@ -322,7 +330,8 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 				if (slots[1].getItemDamage() == slots[1].getMaxDamage())
 				{
 					slots[1] = null;
-				} else
+				}
+				else
 				{
 					slots[1].attemptDamageItem(1, random);
 				}
@@ -330,7 +339,8 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 				isExtracting = false;
 				flag1 = true;
 			}
-		} else
+		}
+		else
 		{
 			cooktime = 0;
 		}

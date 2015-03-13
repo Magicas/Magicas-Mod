@@ -48,3 +48,5 @@ tile.taintedgrass.name=Tainted Ground
 tile.Log.Dead.name=Dead Log
 
 tile.Leaf.Dead.name=Dead Leaves
+
+tile.Sapling.Dead.name=Dead Sapling

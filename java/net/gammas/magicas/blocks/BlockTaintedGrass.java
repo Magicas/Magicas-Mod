@@ -23,10 +23,9 @@ public class BlockTaintedGrass extends Block
 	@SideOnly(Side.CLIENT)
 	private IIcon bottom;
     
-	public BlockTaintedGrass()
+	public BlockTaintedGrass(Material material)
     {
-		super(Material.grass);
-		setStepSound(soundTypeGrass);
+		super(material);
     }
 	
     @SideOnly(Side.CLIENT)

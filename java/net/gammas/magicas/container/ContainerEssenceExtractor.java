@@ -38,10 +38,6 @@ public class ContainerEssenceExtractor extends Container
 		this.addSlotToContainer(new SlotEssenceExtractorChisel(invPlayer.player, teEssenceExtractor, INPUT_2, 26, 44));
 		this.addSlotToContainer(new Slot((IInventory) teEssenceExtractor, INPUT_3, 66, 34));
 		this.addSlotToContainer(new SlotEssenceExtractor(invPlayer.player, teEssenceExtractor, OUTPUT, 124, 35));
-		
-//		this.addSlotToContainer(new Slot ((IInventory)teEssenceCombiner, 0, 30, 35));
-//		this.addSlotToContainer(new Slot ((IInventory)teEssenceCombiner, 1, 68, 35));
-//		this.addSlotToContainer(new SlotEssenceCombiner(invPlayer.player, teEssenceCombiner, 2, 124, 35));
 
 		for (int i = 0; i < 3; i++)
 		{
@@ -151,7 +147,8 @@ public class ContainerEssenceExtractor extends Container
 			if (itemstack1.stackSize == 0)
 			{
 				slot.putStack((ItemStack) null);
-			} else
+			}
+			else
 			{
 				slot.onSlotChanged();
 			}

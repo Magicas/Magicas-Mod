@@ -13,11 +13,9 @@ import net.minecraft.world.World;
 public class BlockEarthEssenceOre extends Block
 {
 
-	public BlockEarthEssenceOre() 
+	public BlockEarthEssenceOre(Material material) 
 	{
-		super(Material.rock);
-		setHardness(5f);
-		setStepSound(Block.soundTypeStone);
+		super(material);
 		setHarvestLevel("pickaxe", 2);
 	}
 	

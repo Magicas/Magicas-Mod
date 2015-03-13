@@ -20,14 +20,14 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 
 @Mod(modid = Referances.MODID, name = Referances.MODNAME, version = Referances.VERSION)
-public class MagicasMod 
+public class MagicasMod
 {
 	@SidedProxy(clientSide = "net.gammas.magicas.util.ClientProxy", serverSide = "net.gammas.magicas.util.CommonProxy")
 	public static CommonProxy proxy;
-	
+
 	@Instance(Referances.MODID)
 	public static MagicasMod instance;
-	
+
 	@EventHandler
 	public void PreInit(FMLPreInitializationEvent event)
 	{
@@ -37,23 +37,23 @@ public class MagicasMod
 		MagicasWorld.InitWorld();
 		MagicasTileEntities.InitTileEntities();
 	}
-	
+
 	@EventHandler
 	public void Init(FMLInitializationEvent event)
-	{		
+	{
 		MagicasItems.RegisterItems();
 		MagicasBlocks.RegisterBlocks();
 		MagicasTileEntities.RegisterTileEntities();
 		MagicasCraftingManager.RegisterRecipes();
-		
+
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GUIHandler());
-		
+
 		proxy.registerRenderers();
 	}
-	
+
 	@EventHandler
 	public void PostInit(FMLPostInitializationEvent event)
 	{
-		
+
 	}
 }

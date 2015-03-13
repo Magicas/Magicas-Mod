@@ -34,10 +34,6 @@ public class ContainerEssenceInfuser extends Container
 		this.addSlotToContainer(new Slot((IInventory) teEssenceInfuser, INPUT_3, 80, 61));
 		this.addSlotToContainer(new Slot((IInventory) teEssenceInfuser, INPUT_4, 106, 35));
 		this.addSlotToContainer(new Slot((IInventory) teEssenceInfuser, OUTPUT, 80, 33));
-		
-//		this.addSlotToContainer(new Slot ((IInventory)teEssenceCombiner, 0, 30, 35));
-//		this.addSlotToContainer(new Slot ((IInventory)teEssenceCombiner, 1, 68, 35));
-//		this.addSlotToContainer(new SlotEssenceCombiner(invPlayer.player, teEssenceCombiner, 2, 124, 35));
 
 		for (int i = 0; i < 3; i++)
 		{
@@ -94,7 +90,8 @@ public class ContainerEssenceInfuser extends Container
 				}
 				else if (ContainerHelp.isArmour(itemstack1.getItem()))
 				{
-					if (!this.mergeItemStack(itemstack1, OUTPUT, OUTPUT + 1, false));
+					if (!this.mergeItemStack(itemstack1, OUTPUT, OUTPUT + 1, false))
+						;
 				}
 				// item in player's inventory, but not in action bar
 				else if (par2 >= OUTPUT + 1 && par2 < OUTPUT + 28)
@@ -121,7 +118,8 @@ public class ContainerEssenceInfuser extends Container
 			if (itemstack1.stackSize == 0)
 			{
 				slot.putStack((ItemStack) null);
-			} else
+			}
+			else
 			{
 				slot.onSlotChanged();
 			}

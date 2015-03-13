@@ -34,12 +34,10 @@ public class EssenceCombiner extends BlockContainer
 	 @SideOnly(Side.CLIENT)
 	 private IIcon bottom;
 	
-	public EssenceCombiner(boolean isActive) 
+	public EssenceCombiner(Material material, boolean isActive) 
 	{
-		super(Material.iron);
+		super(material);
 		this.isActive = isActive;
-		setHardness(5f);
-		setStepSound(Block.soundTypeMetal);
 		setHarvestLevel("pickaxe", 2);
 	}
 	

@@ -32,13 +32,13 @@ public class EssenceCombinerRecipes
 
 		if (item == MagicasItems.earthEssenceShard && item2 == MagicasItems.fireEssenceShard)
 			return new ItemStack(MagicasItems.lavaEssenceShard, 1);
-		
+
 		if (item == MagicasItems.waterEssenceShard && item2 == MagicasItems.earthEssenceShard)
 			return new ItemStack(MagicasItems.lifeEssenceShard, 1);
 
 		if (item == MagicasItems.earthEssenceShard && item2 == MagicasItems.waterEssenceShard)
 			return new ItemStack(MagicasItems.lifeEssenceShard, 1);
-		
+
 		if (item == MagicasItems.fireEssenceShard && item2 == MagicasItems.lifeEssenceShard)
 			return new ItemStack(MagicasItems.deathEssenceShard, 1);
 

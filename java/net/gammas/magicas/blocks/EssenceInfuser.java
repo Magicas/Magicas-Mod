@@ -25,10 +25,11 @@ public class EssenceInfuser extends BlockContainer
 	 @SideOnly(Side.CLIENT)
 	 private IIcon bottom;
 	
-	public EssenceInfuser(boolean isActive) 
+	public EssenceInfuser(Material material, boolean isActive) 
 	{
-		super(Material.iron);
+		super(material);
 		this.isActive = isActive;
+		setHarvestLevel("pickaxe", 2);
 	}
 	
     @SideOnly(Side.CLIENT)

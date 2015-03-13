@@ -25,12 +25,10 @@ public class EssenceExtractor extends BlockContainer
 {
 	private boolean isActive;
 
-	public EssenceExtractor(boolean isActive)
+	public EssenceExtractor(Material material, boolean isActive)
 	{
-		super(Material.iron);
+		super(material);
 		this.isActive = isActive;
-		setHardness(5f);
-		setStepSound(Block.soundTypeMetal);
 		setHarvestLevel("pickaxe", 2);
 	}
 
