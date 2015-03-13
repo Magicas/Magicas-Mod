@@ -39,6 +39,7 @@ A Magical Mod For 1.7.10
 - Air Boss
 
 # Ideas
+
 ## Fire Essence
 ### Armor
 - Fire Res
