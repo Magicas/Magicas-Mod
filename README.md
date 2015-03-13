@@ -1,4 +1,5 @@
 # Magicas-Mod
+## ANY IDEAS EDIT THIS AND PUSH IT TO ME!
 A Magical Mod For 1.7.10
 
 # Current Items
