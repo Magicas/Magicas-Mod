@@ -11,6 +11,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class MagicasLeaf extends BlockLeaves
@@ -66,9 +67,16 @@ public class MagicasLeaf extends BlockLeaves
 	}
 	
 	@Override
-	public boolean isOpaqueCube()
-	{
+	public boolean isOpaqueCube(){
 		return false;
+	}
+	@Override
+	public boolean renderAsNormalBlock(){
+		return false;
+	}
+	@Override
+	public boolean shouldSideBeRendered(IBlockAccess iba, int x, int y, int z, int side){
+		return true;
 	}
 
 	@Override
