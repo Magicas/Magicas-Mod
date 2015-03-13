@@ -46,3 +46,17 @@ A Magical Mod For 1.7.10
 
 ### Weapon
 - Fire Aspect
+
+## Water Essence
+### Armor
+-
+
+### Weapon
+-
+
+## Earth Essence
+### Armor
+-
+
+### Weapon
+-
