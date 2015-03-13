@@ -1,37 +1,50 @@
 itemGroup.magicasTab=Magicas Mod
+
 container.essenceExtractor=Extractor
 container.essenceCombiner=Combiner
 container.essenceInfuser=Infuser
+
 item.MagicWandBlue.name=Blue Magic Wand
 item.MagicWandGreen.name=Green Magic Wand
 item.MagicWandOrange.name=Orange Magic Wand
+
 item.FireEssenceShard.name=Fire Essence Shard
 item.WaterEssenceShard.name=Water Essence Shard
 item.EarthEssenceShard.name=Earth Essence Shard
 item.AirEssenceShard.name=Air Essence Shard
+item.SteamEssenceShard.name=Steam Essence Shard
+item.LavaEssenceShard.name=Lava Essence Shard
+item.LifeEssenceShard.name=Life Essence Shard
+item.DeathEssenceShard.name=Death Essence Shard
+
 item.FireEssenceChunk.name=Fire Essence Chunk
 item.WaterEssenceChunk.name=Water Essence Chunk
 item.EarthEssenceChunk.name=Earth Essence Chunk
 item.AirEssenceChunk.name=Air Essence Chunk
+
 item.StoneHammer.name=Stone Hammer
 item.StoneChisel.name=Stone Chisel
 item.IronHammer.name=Iron Hammer
 item.IronChisel.name=Iron Chisel
 item.DiamondHammer.name=Diamond Hammer
 item.DiamondChisel.name=Diamond Chisel
-item.SteamEssenceShard.name=Steam Essence Shard
-item.LavaEssenceShard.name=Lava Essence Shard
-item.LifeEssenceShard.name=Life Essence Shard
-item.DeathEssenceShard.name=Death Essence Shard
+
 item.IronInfusedHelmet.name=Infused Iron Helmet
 item.IronInfusedChestplate.name=Infused Iron Chestplate
 item.IronInfusedLeggings.name=Infused Iron Leggings
 item.IronInfusedBoots.name=Infused Iron Boots
+
 tile.essenceExtractorIdle.name=Essence Extractor
 tile.essenceCombinerIdle.name=Essence Combiner
 tile.essenceInfuserIdle.name=Essence Infuser
+
 tile.fireEssenceOre.name=Fire Essence Ore
 tile.waterEssenceOre.name=Water Essence Ore
 tile.earthEssenceOre.name=Earth Essence Ore
 tile.airEssenceOre.name=Air Essence Ore
+
 tile.taintedgrass.name=Tainted Ground
+
+tile.Log.Dead.name=Dead Log
+
+tile.Leaf.Dead.name=Dead Leaves

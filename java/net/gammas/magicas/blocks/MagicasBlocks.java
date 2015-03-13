@@ -1,12 +1,12 @@
 package net.gammas.magicas.blocks;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
+import net.gammas.magicas.biome.features.MagicasLeaf;
+import net.gammas.magicas.biome.features.MagicasLog;
 import net.gammas.magicas.core.MagicasCreativeTabs;
-import net.gammas.magicas.core.MagicasMod;
+import net.gammas.magicas.items.ItemLeafBlocks;
+import net.gammas.magicas.items.ItemLogBlocks;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.item.Item;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class MagicasBlocks
 {
@@ -30,6 +30,7 @@ public class MagicasBlocks
 	
 	// Trees
 	public static Block blockLog;
+	public static Block blockLeaf;
 
 	// GUI IDs
 	public static final int GuiIDEssenceExtractor = 0;
@@ -54,6 +55,10 @@ public class MagicasBlocks
 		EssenceCombinerActive = new EssenceCombiner(true).setBlockName("essenceCombinerActive");
 		EssenceInfuserIdle = new EssenceInfuser(false).setBlockName("essenceInfuserIdle").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas);
 		EssenceInfuserActive = new EssenceInfuser(true).setBlockName("essenceInfuserActive");
+		
+		// Trees
+		blockLog = new MagicasLog().setBlockName("Log").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setBlockTextureName("magicasmod:Log");
+		blockLeaf = new MagicasLeaf().setBlockName("Leaf").setCreativeTab(MagicasCreativeTabs.creativeTabMagicas).setBlockTextureName("magicasmod:Leaf");
 	}
 
 	public static void RegisterBlocks()
@@ -70,5 +75,7 @@ public class MagicasBlocks
 		GameRegistry.registerBlock(EssenceCombinerActive, EssenceCombinerActive.getUnlocalizedName());
 		GameRegistry.registerBlock(EssenceInfuserIdle, EssenceInfuserIdle.getUnlocalizedName());
 		GameRegistry.registerBlock(EssenceInfuserActive, EssenceInfuserActive.getUnlocalizedName());
+		GameRegistry.registerBlock(blockLog, ItemLogBlocks.class, blockLog.getUnlocalizedName());
+		GameRegistry.registerBlock(blockLeaf, ItemLeafBlocks.class, blockLeaf.getUnlocalizedName());
 	}
 }

@@ -46,12 +46,24 @@ public class MagicasItems
 	public static Item airEssenceShard;
 
 	// Level 2
-	public static Item steamEssenceShard;
-	public static Item lavaEssenceShard;
+	public static Item steamEssenceShard; // Fire + Water, Energy + Water
+	public static Item lavaEssenceShard; // Earth + Fire
+	public static Item dustEssenceShard; // Air + Earth
+	public static Item energyEssenceShard; // Air + Fire
+	public static Item rainEssenceShard; // Air + Water
+	public static Item mudEssenceShard; // Earth + Water
 
 	// Level 3
 	public static Item lifeEssenceShard;
 	public static Item deathEssenceShard;
+	public static Item gunpowderEssenceShard; // Dust + Fire
+	public static Item cloudEssenceShard; // Steam + Air
+	public static Item geyserEssenceShard; // Steam + Earth
+	public static Item stoneEssenceShard; // Lava + Air
+	public static Item volcanoEssenceShard; // Lava + Earth
+	public static Item obsidianEssenceShard; // Lava + Water
+	public static Item windEssenceShard; // Energy + Air
+	public static Item earthquakeEssenceShard; // Energy + Earth
 
 	// Level 4
 	public static Item lightEssence;
