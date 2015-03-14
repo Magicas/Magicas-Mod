@@ -164,6 +164,10 @@ public class TileEntityEssenceExtractor extends TileEntity implements ISidedInve
 				return true;
 			}
 		}
+		else if (slot == 2)
+		{
+			if (ContainerHelp.isEssenceChunk(is.getItem()));
+		}
 
 		return false;
 	}

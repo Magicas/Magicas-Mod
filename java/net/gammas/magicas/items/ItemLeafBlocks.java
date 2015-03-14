@@ -8,7 +8,7 @@ public class ItemLeafBlocks extends ItemBlock
 {
 
 	public static final String[] leaves = new String[]
-	{ "Dead" };
+	{ "Dead_Oak", "Dead_Spruce", "Dead_Birch", "Dead_Jungle", "Dead_Acacia", "Dead_DarkOak" };
 
 	public ItemLeafBlocks(Block block)
 	{

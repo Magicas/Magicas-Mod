@@ -11,10 +11,10 @@ import net.minecraft.util.IIcon;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class MagicasLog extends BlockLog
+public class MagicasLog1 extends BlockLog
 {
 	public static final String[] logs = new String[]
-	{ "Dead_Oak", "Dead_Spruce", "Dead_Birch", "Dead_Jungle" };
+	{ "Dead_Acacia", "Dead_DarkOak" };
 
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs tabs, List list)

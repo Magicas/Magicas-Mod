@@ -50,20 +50,14 @@ public class MagicasItems
 	public static Item lavaEssenceShard; // Earth + Fire
 	public static Item dustEssenceShard; // Air + Earth
 	public static Item energyEssenceShard; // Air + Fire
-	public static Item rainEssenceShard; // Air + Water
-	public static Item mudEssenceShard; // Earth + Water
+	public static Item dirtEssenceShard; // Earth + Water
 
 	// Level 3
 	public static Item lifeEssenceShard;
 	public static Item deathEssenceShard;
 	public static Item gunpowderEssenceShard; // Dust + Fire
-	public static Item cloudEssenceShard; // Steam + Air
-	public static Item geyserEssenceShard; // Steam + Earth
 	public static Item stoneEssenceShard; // Lava + Air
-	public static Item volcanoEssenceShard; // Lava + Earth
 	public static Item obsidianEssenceShard; // Lava + Water
-	public static Item windEssenceShard; // Energy + Air
-	public static Item earthquakeEssenceShard; // Energy + Earth
 
 	// Level 4
 	public static Item lightEssence;
@@ -78,45 +72,49 @@ public class MagicasItems
 		ironInfusedBoots = new ArmourInfusedIron(ArmorMaterial.IRON, 0, 3).setUnlocalizedName("IronInfusedBoots").setCreativeTab(MagicasTab);
 
 		// Magic Wands
-		magicWandBlue = new ItemMagicWand(2).setUnlocalizedName("MagicWandBlue").setCreativeTab(MagicasTab).setTextureName("magicasmod:MagicWandBlue");
-		magicWandGreen = new ItemMagicWand(3).setUnlocalizedName("MagicWandGreen").setCreativeTab(MagicasTab).setTextureName("magicasmod:MagicWandGreen");
-		magicWandOrange = new ItemMagicWand(5).setUnlocalizedName("MagicWandOrange").setCreativeTab(MagicasTab).setTextureName("magicasmod:MagicWandOrange");
+		magicWandBlue = new ItemMagicWand(2).setUnlocalizedName("MagicWandBlue").setCreativeTab(MagicasTab);
+		magicWandGreen = new ItemMagicWand(3).setUnlocalizedName("MagicWandGreen").setCreativeTab(MagicasTab);
+		magicWandOrange = new ItemMagicWand(5).setUnlocalizedName("MagicWandOrange").setCreativeTab(MagicasTab);
 
 		// Tools
-		stoneHammer = new ItemHammer(25).setUnlocalizedName("StoneHammer").setCreativeTab(MagicasTab).setTextureName("magicasmod:StoneHammer");
-		stoneChisel = new ItemChisel(13).setUnlocalizedName("StoneChisel").setCreativeTab(MagicasTab).setTextureName("magicasmod:StoneChisel");
-		ironHammer = new ItemHammer(100).setUnlocalizedName("IronHammer").setCreativeTab(MagicasTab).setTextureName("magicasmod:IronHammer");
-		ironChisel = new ItemChisel(52).setUnlocalizedName("IronChisel").setCreativeTab(MagicasTab).setTextureName("magicasmod:IronChisel");
-		diamondHammer = new ItemHammer(2000).setUnlocalizedName("DiamondHammer").setCreativeTab(MagicasTab).setTextureName("magicasmod:DiamondHammer");
-		diamondChisel = new ItemChisel(1040).setUnlocalizedName("DiamondChisel").setCreativeTab(MagicasTab).setTextureName("magicasmod:DiamondChisel");
+		stoneHammer = new ItemHammer(25).setUnlocalizedName("StoneHammer").setCreativeTab(MagicasTab);
+		stoneChisel = new ItemChisel(13).setUnlocalizedName("StoneChisel").setCreativeTab(MagicasTab);
+		ironHammer = new ItemHammer(100).setUnlocalizedName("IronHammer").setCreativeTab(MagicasTab);
+		ironChisel = new ItemChisel(52).setUnlocalizedName("IronChisel").setCreativeTab(MagicasTab);
+		diamondHammer = new ItemHammer(2000).setUnlocalizedName("DiamondHammer").setCreativeTab(MagicasTab);
+		diamondChisel = new ItemChisel(1040).setUnlocalizedName("DiamondChisel").setCreativeTab(MagicasTab);
 
 		// Essence
 
 		// Chunks
-		fireEssenceChunk = new ItemEssence().setUnlocalizedName("FireEssenceChunk").setCreativeTab(MagicasTab).setTextureName("magicasmod:FireEssenceChunk");
-		waterEssenceChunk = new ItemEssence().setUnlocalizedName("WaterEssenceChunk").setCreativeTab(MagicasTab).setTextureName("magicasmod:WaterEssenceChunk");
-		earthEssenceChunk = new ItemEssence().setUnlocalizedName("EarthEssenceChunk").setCreativeTab(MagicasTab).setTextureName("magicasmod:EarthEssenceChunk");
-		airEssenceChunk = new ItemEssence().setUnlocalizedName("AirEssenceChunk").setCreativeTab(MagicasTab).setTextureName("magicasmod:AirEssenceChunk");
+		fireEssenceChunk = new ItemEssence().setUnlocalizedName("FireEssenceChunk").setCreativeTab(MagicasTab);
+		waterEssenceChunk = new ItemEssence().setUnlocalizedName("WaterEssenceChunk").setCreativeTab(MagicasTab);
+		earthEssenceChunk = new ItemEssence().setUnlocalizedName("EarthEssenceChunk").setCreativeTab(MagicasTab);
+		airEssenceChunk = new ItemEssence().setUnlocalizedName("AirEssenceChunk").setCreativeTab(MagicasTab);
 
 		// Shards
 
 		// Level 1
-		fireEssenceShard = new ItemEssence().setUnlocalizedName("FireEssenceShard").setCreativeTab(MagicasTab).setTextureName("magicasmod:FireEssenceShard");
-		waterEssenceShard = new ItemEssence().setUnlocalizedName("WaterEssenceShard").setCreativeTab(MagicasTab).setTextureName("magicasmod:WaterEssenceShard");
-		earthEssenceShard = new ItemEssence().setUnlocalizedName("EarthEssenceShard").setCreativeTab(MagicasTab).setTextureName("magicasmod:EarthEssenceShard");
-		airEssenceShard = new ItemEssence().setUnlocalizedName("AirEssenceShard").setCreativeTab(MagicasTab).setTextureName("magicasmod:AirEssenceShard");
+		fireEssenceShard = new ItemEssence().setUnlocalizedName("FireEssenceShard").setCreativeTab(MagicasTab);
+		waterEssenceShard = new ItemEssence().setUnlocalizedName("WaterEssenceShard").setCreativeTab(MagicasTab);
+		earthEssenceShard = new ItemEssence().setUnlocalizedName("EarthEssenceShard").setCreativeTab(MagicasTab);
+		airEssenceShard = new ItemEssence().setUnlocalizedName("AirEssenceShard").setCreativeTab(MagicasTab);
 
 		// Level 2
-		steamEssenceShard = new ItemEssence().setUnlocalizedName("SteamEssenceShard").setCreativeTab(MagicasTab).setTextureName("magicasmod:SteamEssenceShard");
-		lavaEssenceShard = new ItemEssence().setUnlocalizedName("LavaEssenceShard").setCreativeTab(MagicasTab).setTextureName("magicasmod:LavaEssenceShard");
-		dustEssenceShard = new ItemEssence().setUnlocalizedName("DustEssenceShard").setCreativeTab(MagicasTab).setTextureName("magicasmod:DustEssenceShard");
-		energyEssenceShard = new ItemEssence().setUnlocalizedName("EnergyEssenceShard").setCreativeTab(MagicasTab).setTextureName("magicasmod:EnergyEssenceShard");
-		rainEssenceShard = new ItemEssence().setUnlocalizedName("RainEssenceShard").setCreativeTab(MagicasTab).setTextureName("magicasmod:RainEssenceShard");
-		mudEssenceShard = new ItemEssence().setUnlocalizedName("MudEssenceShard").setCreativeTab(MagicasTab).setTextureName("magicasmod:MudEssenceShard");
+		steamEssenceShard = new ItemEssence().setUnlocalizedName("SteamEssenceShard").setCreativeTab(MagicasTab);
+		lavaEssenceShard = new ItemEssence().setUnlocalizedName("LavaEssenceShard").setCreativeTab(MagicasTab);
+		dustEssenceShard = new ItemEssence().setUnlocalizedName("DustEssenceShard").setCreativeTab(MagicasTab);
+		energyEssenceShard = new ItemEssence().setUnlocalizedName("EnergyEssenceShard").setCreativeTab(MagicasTab);
+		dirtEssenceShard = new ItemEssence().setUnlocalizedName("DirtEssenceShard").setCreativeTab(MagicasTab);
 
+		// Level 3
+		gunpowderEssenceShard = new ItemEssence().setUnlocalizedName("GunpowderEssenceShard").setCreativeTab(MagicasTab);
+		stoneEssenceShard = new ItemEssence().setUnlocalizedName("StoneEssenceShard").setCreativeTab(MagicasTab);
+		obsidianEssenceShard = new ItemEssence().setUnlocalizedName("ObsidianEssenceShard").setCreativeTab(MagicasTab);
+		
 		// TODO LEVEL THESE ESSENCE SHARDS
-		lifeEssenceShard = new ItemEssence().setUnlocalizedName("LifeEssenceShard").setCreativeTab(MagicasTab).setTextureName("magicasmod:LifeEssenceShard");
-		deathEssenceShard = new ItemEssence().setUnlocalizedName("DeathEssenceShard").setCreativeTab(MagicasTab).setTextureName("magicasmod:DeathEssenceShard");
+		lifeEssenceShard = new ItemEssence().setUnlocalizedName("LifeEssenceShard").setCreativeTab(MagicasTab);
+		deathEssenceShard = new ItemEssence().setUnlocalizedName("DeathEssenceShard").setCreativeTab(MagicasTab);
 	}
 
 	public static void RegisterItems()
@@ -141,6 +139,9 @@ public class MagicasItems
 		Register(lavaEssenceShard);
 		Register(lifeEssenceShard);
 		Register(deathEssenceShard);
+		Register(gunpowderEssenceShard);
+		Register(steamEssenceShard);
+		Register(obsidianEssenceShard);
 
 		// Chunks
 		Register(fireEssenceChunk);

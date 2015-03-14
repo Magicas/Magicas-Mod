@@ -193,17 +193,17 @@ public class ArmourInfusedIron extends ItemArmor implements ISpecialArmor
 									{
 										world.setBlock((int) player.posX + x, (int) player.posY + y, (int) player.posZ + z, Blocks.dirt);
 									}
-									
+
 									if (world.getBlock((int) player.posX + x, (int) player.posY + y, (int) player.posZ + z) == Blocks.log)
 									{
 										world.setBlock((int) player.posX + x, (int) player.posY + y, (int) player.posZ + z, MagicasBlocks.blockLog, 0, 2);
 									}
-									
+
 									if (world.getBlock((int) player.posX + x, (int) player.posY + y, (int) player.posZ + z) == Blocks.leaves)
 									{
 										world.setBlock((int) player.posX + x, (int) player.posY + y, (int) player.posZ + z, MagicasBlocks.blockLeaf, 0, 2);
 									}
-									
+
 									if (world.getBlock((int) player.posX + x, (int) player.posY + y, (int) player.posZ + z) == Blocks.sapling)
 									{
 										world.setBlock((int) player.posX + x, (int) player.posY + y, (int) player.posZ + z, MagicasBlocks.blockSapling, 0, 2);
@@ -229,17 +229,17 @@ public class ArmourInfusedIron extends ItemArmor implements ISpecialArmor
 											world.setBlock((int) player.posX + x, (int) player.posY + y, (int) player.posZ + z, Blocks.grass);
 										}
 									}
-									
+
 									if (world.getBlock((int) player.posX + x, (int) player.posY + y, (int) player.posZ + z) == MagicasBlocks.blockLog && world.getBlockMetadata((int) player.posX + x, (int) player.posY + y, (int) player.posZ + z) == 0)
 									{
 										world.setBlock((int) player.posX + x, (int) player.posY + y, (int) player.posZ + z, Blocks.log, 0, 2);
 									}
-									
+
 									if (world.getBlock((int) player.posX + x, (int) player.posY + y, (int) player.posZ + z) == MagicasBlocks.blockLeaf && world.getBlockMetadata((int) player.posX + x, (int) player.posY + y, (int) player.posZ + z) == 0)
 									{
 										world.setBlock((int) player.posX + x, (int) player.posY + y, (int) player.posZ + z, Blocks.leaves, 0, 2);
 									}
-									
+
 									if (world.getBlock((int) player.posX + x, (int) player.posY + y, (int) player.posZ + z) == MagicasBlocks.blockSapling && world.getBlockMetadata((int) player.posX + x, (int) player.posY + y, (int) player.posZ + z) == 0)
 									{
 										world.setBlock((int) player.posX + x, (int) player.posY + y, (int) player.posZ + z, Blocks.sapling, 0, 2);

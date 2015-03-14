@@ -46,6 +46,16 @@ public class EssenceExtractorRecipes
 				return new ItemStack(MagicasItems.airEssenceShard, 1);
 			}
 
+			if (item3 == Items.gunpowder)
+			{
+				return new ItemStack(MagicasItems.gunpowderEssenceShard, 1);
+			}
+
+			if (item3 == Item.getItemFromBlock(Blocks.obsidian))
+			{
+				return new ItemStack(MagicasItems.obsidianEssenceShard, 1);
+			}
+
 			return null;
 		}
 

@@ -2,10 +2,12 @@ package net.gammas.magicas.blocks;
 
 import net.gammas.magicas.biome.features.MagicasLeaf;
 import net.gammas.magicas.biome.features.MagicasLog;
+import net.gammas.magicas.biome.features.MagicasLog1;
 import net.gammas.magicas.biome.features.MagicasSapling;
 import net.gammas.magicas.core.MagicasCreativeTabs;
 import net.gammas.magicas.items.ItemLeafBlocks;
 import net.gammas.magicas.items.ItemLogBlocks;
+import net.gammas.magicas.items.ItemLogBlocks1;
 import net.gammas.magicas.items.ItemSaplingBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.Block.SoundType;
@@ -39,6 +41,7 @@ public class MagicasBlocks
 
 	// Trees
 	public static Block blockLog;
+	public static Block blockLog1;
 	public static Block blockLeaf;
 	public static Block blockSapling;
 
@@ -96,6 +99,7 @@ public class MagicasBlocks
 
 		// Trees
 		blockLog = new MagicasLog().setBlockName("Log").setCreativeTab(MagicasTab).setBlockTextureName("magicasmod:Log").setHardness(wood).setStepSound(woodStep);
+		blockLog1 = new MagicasLog1().setBlockName("Log1").setCreativeTab(MagicasTab).setBlockTextureName("magicasmod:Log").setHardness(wood).setStepSound(woodStep);
 		blockLeaf = new MagicasLeaf().setBlockName("Leaf").setCreativeTab(MagicasTab).setBlockTextureName("magicasmod:Leaf").setHardness(dirt / 5 * 4).setStepSound(grassStep);
 		blockSapling = new MagicasSapling().setBlockName("Sapling").setCreativeTab(MagicasTab).setBlockTextureName("magicasmod:Sapling").setStepSound(grassStep);
 	}
@@ -114,6 +118,7 @@ public class MagicasBlocks
 		Register(EssenceInfuserIdle);
 		Register(EssenceInfuserActive);
 		GameRegistry.registerBlock(blockLog, ItemLogBlocks.class, blockLog.getUnlocalizedName());
+		GameRegistry.registerBlock(blockLog1, ItemLogBlocks1.class, blockLog1.getUnlocalizedName());
 		GameRegistry.registerBlock(blockLeaf, ItemLeafBlocks.class, blockLeaf.getUnlocalizedName());
 		GameRegistry.registerBlock(blockSapling, ItemSaplingBlocks.class, blockSapling.getUnlocalizedName());
 	}

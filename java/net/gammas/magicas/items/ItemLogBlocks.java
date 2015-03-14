@@ -8,7 +8,7 @@ public class ItemLogBlocks extends ItemBlock
 {
 
 	public static final String[] logs = new String[]
-	{ "Dead" };
+	{ "Dead_Oak", "Dead_Spruce", "Dead_Birch", "Dead_Jungle" };
 
 	public ItemLogBlocks(Block block)
 	{

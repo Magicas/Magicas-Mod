@@ -19,11 +19,11 @@ public class MagicasLeaf extends BlockLeaves
 
 	public static final String[][] leafTypes = new String[][]
 	{
-	{ "Dead" },
-	{ "DeadOpaque" } };
+	{ "Dead_Oak", "Dead_Spruce", "Dead_Birch", "Dead_Jungle", "Dead_Acacia", "Dead_DarkOak" },
+	{ "Dead_OakOpaque", "Dead_SpruceOpaque", "Dead_BirchOpaque", "Dead_JungleOpaque", "Dead_AcaciaOpaque", "Dead_DarkOakOpaque" } };
 
 	public static final String[] leaves = new String[]
-	{ "Dead" };
+	{ "Dead_Oak", "Dead_Spruce", "Dead_Birch", "Dead_Jungle", "Dead_Acacia", "Dead_DarkOak" };
 
 	protected void func_150124_c(World world, int x, int y, int z, int side, int meta)
 	{

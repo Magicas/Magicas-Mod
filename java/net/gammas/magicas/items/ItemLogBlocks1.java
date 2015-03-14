@@ -4,13 +4,13 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
-public class ItemSaplingBlocks extends ItemBlock
+public class ItemLogBlocks1 extends ItemBlock
 {
 
-	public static final String[] saplings = new String[]
-	{ "Dead_Oak", "Dead_Spruce", "Dead_Birch", "Dead_Jungle", "Dead_Acacia", "Dead_DarkOak" };
+	public static final String[] logs = new String[]
+	{ "Dead_Acacia", "Dead_DarkOak" };
 
-	public ItemSaplingBlocks(Block block)
+	public ItemLogBlocks1(Block block)
 	{
 		super(block);
 		this.setHasSubtypes(true);
@@ -19,12 +19,12 @@ public class ItemSaplingBlocks extends ItemBlock
 	public String getUnlocalizedName(ItemStack itemstack)
 	{
 		int i = itemstack.getItemDamage();
-		if (i < 0 || i >= saplings.length)
+		if (i < 0 || i >= logs.length)
 		{
 			i = 0;
 		}
 		
-		return super.getUnlocalizedName() + "." + saplings[i];
+		return super.getUnlocalizedName() + "." + logs[i];
 	}
 	
 	public int getMetadata (int meta)

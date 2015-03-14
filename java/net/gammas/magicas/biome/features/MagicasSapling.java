@@ -24,7 +24,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class MagicasSapling extends BlockSapling
 {
 	public static final String[] saplings = new String[]
-	{ "Dead" };
+	{ "Dead_Oak", "Dead_Spruce", "Dead_Birch", "Dead_Jungle", "Dead_Acacia", "Dead_DarkOak" };
 	private static final IIcon[] iconLength = new IIcon[saplings.length];
 
 	public MagicasSapling()
@@ -33,9 +33,6 @@ public class MagicasSapling extends BlockSapling
 		this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
 	}
 
-	/**
-	 * Ticks the block if it's been scheduled
-	 */
 	public void updateTick(World world, int x, int y, int z, Random random)
 	{
 		if (!world.isRemote)
@@ -49,9 +46,6 @@ public class MagicasSapling extends BlockSapling
 		}
 	}
 
-	/**
-	 * Gets the block's texture. Args: side, meta
-	 */
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta)
 	{
@@ -138,19 +132,11 @@ public class MagicasSapling extends BlockSapling
 		return world.getBlock(x, y, z) == this && (world.getBlockMetadata(x, y, z) & 7) == par1;
 	}
 
-	/**
-	 * Determines the damage on the item the block drops. Used in cloth and
-	 * wood.
-	 */
 	public int damageDropped(int par1)
 	{
 		return MathHelper.clamp_int(par1 & 7, 0, 5);
 	}
-
-	/**
-	 * returns a list of blocks with the same ID, but different meta (eg: wood
-	 * returns 4 blocks)
-	 */
+	
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs creativeTab, List list)
 	{

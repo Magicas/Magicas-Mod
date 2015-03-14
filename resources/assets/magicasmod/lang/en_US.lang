@@ -45,7 +45,12 @@ tile.airEssenceOre.name=Air Essence Ore
 
 tile.taintedgrass.name=Tainted Ground
 
-tile.Log.Dead.name=Dead Log
+tile.Log.Dead_Oak.name=Dead Oak Wood
+tile.Log.Dead_Spruce.name=Dead Spruce Wood
+tile.Log.Dead_Birch.name=Dead Birch Wood
+tile.Log.Dead_Jungle.name=Dead Jungle Wood
+tile.Log1.Dead_Acacia.name=Dead Acacia Wood
+tile.Log1.Dead_DarkOak.name=Dead Dark Oak Wood
 
 tile.Leaf.Dead.name=Dead Leaves
 
